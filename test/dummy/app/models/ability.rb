@@ -1,6 +1,6 @@
 # encoding: UTF-8
 
-class Ability  < Sip::Ability
+class Ability  < Sipd::Ability
 
 
   # Se definen habilidades con cancancan
@@ -42,7 +42,7 @@ class Ability  < Sip::Ability
         can :read, Sip::Ubicacion
         can :new, Sip::Ubicacion
         can [:update, :create, :destroy], Sip::Ubicacion
-      when Ability::ROLADMIN, Ability::ROLDES
+      when Ability::ROLADMIN, Ability::ROLDESARROLLADOR, Ability::ROLSUPERADMIN
         can :manage, Sip::Actorsocial
         can :manage, Sip::Persona
         can :manage, Sip::Respaldo7z
@@ -53,8 +53,10 @@ class Ability  < Sip::Ability
           c = Ability.tb_clase(t)
           can :manage, c
         end
-      when Ability::ROLDES, Ability::ROLSUPERADMIN
-        can :manage, Sip::Dominio
+        if usuario.rol == Ability::ROLSUPERADMIN ||
+          usuario.rol == Ability::ROLDESARROLLADOR
+          can :manage, Sipd::Dominio
+        end
       end
     end
   end # def initialize

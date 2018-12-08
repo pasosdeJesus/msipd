@@ -12,6 +12,6 @@ Rails.application.routes.draw do
   resources :usuarios, path_names: { new: 'nuevo', edit: 'edita' }  
 
   root 'sip/hogar#index'
-  mount Sip::Engine, at: "/"
+  mount Sip::Engine => "/"
   mount Sipd::Engine => "/"
 end

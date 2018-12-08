@@ -5,6 +5,7 @@ require 'rails/all'
 Bundler.require(*Rails.groups)
 require "sipd"
 
+
 module Dummy
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
@@ -19,6 +20,7 @@ module Dummy
     config.x.formato_fecha = 'dd/M/yyyy'
     config.active_record.schema_format = :sql
     config.railties_order = [:main_app, Sip::Engine, :all]
+
   end
 end
 

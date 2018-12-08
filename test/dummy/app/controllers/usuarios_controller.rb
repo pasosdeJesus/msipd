@@ -1,6 +1,6 @@
 # encoding: UTF-8
-require 'sip/concerns/controllers/usuarios_controller'
+require 'sipd/concerns/controllers/usuarios_controller'
 
 class UsuariosController < Sip::ModelosController
-    include Sip::Concerns::Controllers::UsuariosController
+    include Sipd::Concerns::Controllers::UsuariosController
 end

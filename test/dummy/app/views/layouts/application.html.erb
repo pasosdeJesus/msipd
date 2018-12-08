@@ -1,8 +1,11 @@
+<% require 'navbar_helper' %>
+
 <% content_for :titulo do %>
     <%= Sip.titulo %>
 <% end %>
 
 <% content_for :menu do %>
+  <% require 'navbar_helper' %>
   <%= menu_group do %>
     <% if !current_usuario.nil? %>
       <%= menu_item "Actores sociales", sip.actoressociales_path %>

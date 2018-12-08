@@ -24,6 +24,9 @@ module Sipd
           has_many :departamento, class_name: 'Sip::Departamento',
             through: :departamento_dominio
 
+          has_many :usuario, class_name: '::Usuario', validate: true,
+            dependent: :delete_all
+
           validates :dominio, length: { maximum: 500 }
           validates :mandato, length: { maximum: 5000 }
 
