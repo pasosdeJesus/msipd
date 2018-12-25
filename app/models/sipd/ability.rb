@@ -13,7 +13,6 @@ require 'sipd/ext/perfilactorsocial'
 require 'sipd/ext/persona'
 require 'sipd/ext/sectoractor'
 
-
 module Sipd
 	class Ability  < Cor1440Gen::Ability
 
