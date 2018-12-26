@@ -14,7 +14,7 @@ require 'sipd/ext/persona'
 require 'sipd/ext/sectoractor'
 
 module Sipd
-	class Ability  < Cor1440Gen::Ability
+	class Ability  < ::Sip::Ability
 
     ROLSUPERADMIN = 8
     ROLDESARROLLADOR = 9
