@@ -14,8 +14,8 @@ gemspec
 gem 'bigdecimal'
 
 # Motor de sistemas de información estilo Pasos de Jesús
-#gem 'sip', git: "https://github.com/pasosdeJesus/sip.git", branch: :con_dominio
-gem 'sip', path: '../sip'
+gem 'sip', git: "https://github.com/pasosdeJesus/sip.git", branch: :con_dominio
+#gem 'sip', path: '../sip'
 
 # Anexos
 gem 'paperclip'                  
