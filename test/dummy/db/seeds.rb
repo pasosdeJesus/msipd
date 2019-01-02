@@ -2,6 +2,10 @@
 
 conexion = ActiveRecord::Base.connection();
 
+conexion.execute("INSERT INTO sipd_dominio (id, dominio, mandato, 
+  created_at, updated_at) VALUES (1, 'www.pasosdeJesus.org', 
+  'Tecnología con misión', '2018-11-27', '2018-11-27');")
+
 # De motores
 Sip::carga_semillas_sql(conexion, 'sip', :datos)
 motor = ['sipd', '../..']
@@ -11,7 +15,7 @@ motor.each do |m|
 end
 
 
-# Usuario para primer ingreso sipd, sipd
+# Usuario para primer ingreso sip, sip
 conexion.execute("INSERT INTO usuario 
 	(nusuario, email, encrypted_password, password, dominio_id,
   fechacreacion, created_at, updated_at, rol) 

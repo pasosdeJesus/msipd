@@ -1076,16 +1076,6 @@ ALTER SEQUENCE public.sip_ubicacion_id_seq1 OWNED BY public.sip_ubicacion.id;
 
 
 --
--- Name: sipd_departamento_dominio; Type: TABLE; Schema: public; Owner: -
---
-
-CREATE TABLE public.sipd_departamento_dominio (
-    departamento_id bigint NOT NULL,
-    dominio_id bigint NOT NULL
-);
-
-
---
 -- Name: sipd_dominio; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -1118,10 +1108,20 @@ ALTER SEQUENCE public.sipd_dominio_id_seq OWNED BY public.sipd_dominio.id;
 
 
 --
--- Name: sipd_dominio_pais; Type: TABLE; Schema: public; Owner: -
+-- Name: sipd_dominio_operaen_departamento; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE public.sipd_dominio_pais (
+CREATE TABLE public.sipd_dominio_operaen_departamento (
+    departamento_id bigint NOT NULL,
+    dominio_id bigint NOT NULL
+);
+
+
+--
+-- Name: sipd_dominio_operaen_pais; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.sipd_dominio_operaen_pais (
     dominio_id bigint NOT NULL,
     pais_id bigint NOT NULL
 );
@@ -1660,10 +1660,10 @@ ALTER TABLE ONLY public.sip_grupoper
 
 
 --
--- Name: sipd_departamento_dominio fk_rails_44dcf582d1; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: sipd_dominio_operaen_departamento fk_rails_44dcf582d1; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY public.sipd_departamento_dominio
+ALTER TABLE ONLY public.sipd_dominio_operaen_departamento
     ADD CONSTRAINT fk_rails_44dcf582d1 FOREIGN KEY (departamento_id) REFERENCES public.sip_departamento(id);
 
 
@@ -1756,18 +1756,18 @@ ALTER TABLE ONLY public.sip_actorsocial_sectoractor
 
 
 --
--- Name: sipd_departamento_dominio fk_rails_b49ea67f2f; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: sipd_dominio_operaen_departamento fk_rails_b49ea67f2f; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY public.sipd_departamento_dominio
+ALTER TABLE ONLY public.sipd_dominio_operaen_departamento
     ADD CONSTRAINT fk_rails_b49ea67f2f FOREIGN KEY (dominio_id) REFERENCES public.sipd_dominio(id);
 
 
 --
--- Name: sipd_dominio_pais fk_rails_b5291ac79e; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: sipd_dominio_operaen_pais fk_rails_b5291ac79e; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY public.sipd_dominio_pais
+ALTER TABLE ONLY public.sipd_dominio_operaen_pais
     ADD CONSTRAINT fk_rails_b5291ac79e FOREIGN KEY (dominio_id) REFERENCES public.sipd_dominio(id);
 
 
@@ -1788,10 +1788,10 @@ ALTER TABLE ONLY public.sip_actorsocial
 
 
 --
--- Name: sipd_dominio_pais fk_rails_ed1af0ae84; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: sipd_dominio_operaen_pais fk_rails_ed1af0ae84; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY public.sipd_dominio_pais
+ALTER TABLE ONLY public.sipd_dominio_operaen_pais
     ADD CONSTRAINT fk_rails_ed1af0ae84 FOREIGN KEY (pais_id) REFERENCES public.sip_pais(id);
 
 
@@ -1965,6 +1965,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20181127194114'),
 ('20181128174519'),
 ('20181128183936'),
-('20181129001248');
+('20181129001248'),
+('20190102140635');
 
 

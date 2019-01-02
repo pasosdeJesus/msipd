@@ -1,5 +1,7 @@
-PATH
-  remote: ../sip
+GIT
+  remote: https://github.com/pasosdeJesus/sip.git
+  revision: ad7902a81a23e4b1aa4934ebbf12c008c08b92b4
+  branch: con_dominio
   specs:
     sip (2.0.b5)
       bootstrap-datepicker-rails
@@ -72,7 +74,7 @@ GEM
       tzinfo (~> 1.1)
     arel (9.0.0)
     bcrypt (3.1.12)
-    bigdecimal (1.4.1)
+    bigdecimal (1.4.2)
     bootstrap-datepicker-rails (1.8.0.1)
       railties (>= 3.0)
     builder (3.2.3)
@@ -110,7 +112,7 @@ GEM
       railties (>= 3.2, < 6.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
-    i18n (1.3.0)
+    i18n (1.4.0)
       concurrent-ruby (~> 1.0)
     jquery-rails (4.3.3)
       rails-dom-testing (>= 1, < 3)
@@ -260,4 +262,4 @@ DEPENDENCIES
   will_paginate
 
 BUNDLED WITH
-   1.17.2
+   1.17.3
