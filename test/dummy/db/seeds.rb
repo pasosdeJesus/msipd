@@ -11,7 +11,7 @@ motor.each do |m|
 end
 
 
-# Usuario para primer ingreso sip, sip
+# Usuario para primer ingreso sipd, sipd
 conexion.execute("INSERT INTO usuario 
 	(nusuario, email, encrypted_password, password, dominio_id,
   fechacreacion, created_at, updated_at, rol) 

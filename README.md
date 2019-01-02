@@ -1,9 +1,9 @@
-# Sipd
-Agrega dominio a sip
-
 # Motor rails para agregar dominio a sip
 [![Build Status](https://semaphoreci.com/api/v1/vtamara/sipd/branches/master/badge.svg)](https://semaphoreci.com/vtamara/sipd) [![Clima del Código](https://codeclimate.com/github/pasosdeJesus/sipd/badges/gpa.svg)](https://codeclimate.com/github/pasosdeJesus/sipd) [![Cobertura de Pruebas](https://codeclimate.com/github/pasosdeJesus/sipd/badges/coverage.svg)](https://codeclimate.com/github/pasosdeJesus/sipd) [![security](https://hakiri.io/github/pasosdeJesus/sipd/master.svg)](https://hakiri.io/github/pasosdeJesus/sipd/master) [![Dependencias](https://gemnasium.com/pasosdeJesus/sipd.svg)](https://gemnasium.com/pasosdeJesus/sipd) 
 
+![Logo de sipd](https://raw.githubusercontent.com/pasosdeJesus/sipd/master/test/dummy/app/assets/images/logo.jpg)
+
+Agrega dominio a sip
 
 ## Uso
 
