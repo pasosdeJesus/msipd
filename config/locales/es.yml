@@ -1,6 +1,9 @@
 es:
   activerecord:
     attributes:
+      "sip/usuario":
+        dominio_ids: Dominios
+        "{:dominio_ids=>[]}": Dominios
       "sipd/dominio":
         "{:pais_ids=>[]}": Pais(s) completo(s)
         "{:departamento_ids=>[]}": Departamento(s) completo(s)

@@ -1128,6 +1128,16 @@ CREATE TABLE public.sipd_dominio_operaen_pais (
 
 
 --
+-- Name: sipd_dominio_usuario; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.sipd_dominio_usuario (
+    dominio_id bigint NOT NULL,
+    usuario_id bigint NOT NULL
+);
+
+
+--
 -- Name: usuario; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -1156,8 +1166,7 @@ CREATE TABLE public.usuario (
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
     regionsjr_id integer,
-    nombre character varying(50) COLLATE public.es_co_utf_8,
-    dominio_id integer DEFAULT 1
+    nombre character varying(50) COLLATE public.es_co_utf_8
 );
 
 
@@ -1668,6 +1677,14 @@ ALTER TABLE ONLY public.sip_grupoper
 
 
 --
+-- Name: sipd_dominio_usuario fk_rails_409b6c9cf3; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sipd_dominio_usuario
+    ADD CONSTRAINT fk_rails_409b6c9cf3 FOREIGN KEY (dominio_id) REFERENCES public.sipd_dominio(id);
+
+
+--
 -- Name: sipd_dominio_operaen_departamento fk_rails_44dcf582d1; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -1684,19 +1701,19 @@ ALTER TABLE ONLY public.sip_actorsocial_persona
 
 
 --
+-- Name: sipd_dominio_usuario fk_rails_4f83073a94; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sipd_dominio_usuario
+    ADD CONSTRAINT fk_rails_4f83073a94 FOREIGN KEY (usuario_id) REFERENCES public.usuario(id);
+
+
+--
 -- Name: sip_actorsocial fk_rails_5b21e3a2af; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.sip_actorsocial
     ADD CONSTRAINT fk_rails_5b21e3a2af FOREIGN KEY (grupoper_id) REFERENCES public.sip_grupoper(id);
-
-
---
--- Name: usuario fk_rails_6c79ea842e; Type: FK CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.usuario
-    ADD CONSTRAINT fk_rails_6c79ea842e FOREIGN KEY (dominio_id) REFERENCES public.sipd_dominio(id);
 
 
 --
@@ -1991,6 +2008,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20181128183936'),
 ('20181129001248'),
 ('20190102140635'),
+('20190102220733'),
 ('20190109125417');
 
 
