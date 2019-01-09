@@ -1,7 +1,6 @@
 GIT
   remote: https://github.com/pasosdeJesus/sip.git
-  revision: ad7902a81a23e4b1aa4934ebbf12c008c08b92b4
-  branch: con_dominio
+  revision: 92f8b336046f00447cc870af1e399f9c7299acf5
   specs:
     sip (2.0.b5)
       bootstrap-datepicker-rails
@@ -107,12 +106,12 @@ GEM
       devise (>= 4.5)
     erubi (1.8.0)
     execjs (2.7.0)
-    ffi (1.9.25)
+    ffi (1.10.0)
     font-awesome-rails (4.7.0.4)
       railties (>= 3.2, < 6.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
-    i18n (1.4.0)
+    i18n (1.5.1)
       concurrent-ruby (~> 1.0)
     jquery-rails (4.3.3)
       rails-dom-testing (>= 1, < 3)
@@ -143,7 +142,7 @@ GEM
     mini_portile2 (2.4.0)
     minitest (5.11.3)
     nio4r (2.3.1)
-    nokogiri (1.9.1)
+    nokogiri (1.10.0)
       mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
     paperclip (6.1.0)
@@ -190,7 +189,7 @@ GEM
     responders (2.4.0)
       actionpack (>= 4.2.0, < 5.3)
       railties (>= 4.2.0, < 5.3)
-    sass (3.7.2)
+    sass (3.7.3)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
       rb-fsevent (~> 0.9, >= 0.9.4)

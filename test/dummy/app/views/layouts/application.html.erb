@@ -17,9 +17,18 @@
     <% if current_usuario %>
       <%= drop_down "Administrar" do %>
         <%= menu_item "Clave", main_app.editar_registro_usuario_path %>
-        <%= menu_item "Copia de respaldo cifrada", sip.respaldo7z_path %>
-        <%= menu_item "Usuarios", main_app.usuarios_path %>
-        <%= menu_item "Tablas Básicas", sip.tablasbasicas_path %>
+        <% if can? :manage, ::Usuario %>
+          <%= menu_item "Usuarios", main_app.usuarios_path %>
+        <% end %>
+        <% if can? :manage, :tablasbasicas %>
+          <%= menu_item "Tablas Básicas", sip.tablasbasicas_path %>
+        <% end %>
+        <% if can? :manage, Sip::Respaldo7z %>
+          <%= menu_item "Copia de respaldo cifrada", sip.respaldo7z_path %>
+        <% end %>
+        <% if can? :manage, Sipd::Dominio %>
+          <%= menu_item "Dominios", sipd.dominios_path %>
+        <% end %>
         <%= menu_item "Ayuda CA", sip.ayuda_controldeacceso_path %>
       <% end %>
       <%= menu_item "Salir #{current_usuario.nusuario}", main_app.sign_out_path %>
@@ -32,7 +41,7 @@
 
 <% content_for :piedepagina do %>
   <p><span class='derechos'><a href="http://www.pasosdejesus.org/dominio_publico_colombia.html">Dominio Público de acuerdo a Legislación Colombiana</a><br/>
-    Desarrollado por <a href="http://www.pasosdeJesus.org" target="_blank">Pasos de Jesús</a>. 2018. 
+    Desarrollado por <a href="http://www.pasosdeJesus.org" target="_blank">Pasos de Jesús</a>. 2019. 
   </span></p>
 <% end %>
 

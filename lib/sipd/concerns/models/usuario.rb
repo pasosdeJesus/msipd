@@ -11,10 +11,15 @@ module Sipd
         included do
           include Sip::Concerns::Models::Usuario
 
-          belongs_to :dominio, class_name: 'Sipd::Dominio', validate: true
+          has_and_belongs_to_many :dominio, 
+            class_name: 'Sipd::Dominio',
+            foreign_key: "usuario_id", 
+            association_foreign_key: "dominio_id",
+            join_table: 'sipd_dominio_usuario',
+            validate: true
 
           scope :filtro_dominio_id, lambda {|d|
-            where(dominio_id: d)
+            joins(:dominio).where('sipd_dominio.id = ?', d)
           }
 
         end

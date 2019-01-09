@@ -1636,6 +1636,14 @@ ALTER TABLE ONLY public.sip_oficina
 
 
 --
+-- Name: sip_municipio fk_rails_089870a38d; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sip_municipio
+    ADD CONSTRAINT fk_rails_089870a38d FOREIGN KEY (id_departamento) REFERENCES public.sip_departamento(id);
+
+
+--
 -- Name: sip_etiqueta fk_rails_08b508c1d4; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -1740,6 +1748,14 @@ ALTER TABLE ONLY public.sip_fuenteprensa
 
 
 --
+-- Name: sip_departamento fk_rails_92093de1a1; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sip_departamento
+    ADD CONSTRAINT fk_rails_92093de1a1 FOREIGN KEY (id_pais) REFERENCES public.sip_pais(id);
+
+
+--
 -- Name: sip_anexo fk_rails_96bffeb735; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -1809,6 +1825,14 @@ ALTER TABLE ONLY public.sip_actorsocial_sectoractor
 
 ALTER TABLE ONLY public.sip_sectoractor
     ADD CONSTRAINT fk_rails_f3e34439fd FOREIGN KEY (dominio_id) REFERENCES public.sipd_dominio(id);
+
+
+--
+-- Name: sip_clase fk_rails_fb09f016e4; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sip_clase
+    ADD CONSTRAINT fk_rails_fb09f016e4 FOREIGN KEY (id_municipio) REFERENCES public.sip_municipio(id);
 
 
 --
@@ -1966,6 +1990,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20181128174519'),
 ('20181128183936'),
 ('20181129001248'),
-('20190102140635');
+('20190102140635'),
+('20190109125417');
 
 
