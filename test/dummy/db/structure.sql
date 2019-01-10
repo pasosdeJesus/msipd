@@ -191,7 +191,8 @@ CREATE TABLE public.sip_actorsocial (
     web character varying(500),
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
-    dominio_id integer DEFAULT 1
+    dominio_id integer DEFAULT 1,
+    fechadeshabilitacion date
 );
 
 
@@ -2009,6 +2010,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20181129001248'),
 ('20190102140635'),
 ('20190102220733'),
-('20190109125417');
+('20190109125417'),
+('20190110191802');
 
 
