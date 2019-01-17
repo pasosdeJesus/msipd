@@ -24,8 +24,8 @@ module Sipd
             [ :id, 
               :dominio,
               :mandato,
-              { :pais_ids => [] },
-              { :departamento_ids => [] }
+              { :operaen_pais_ids => [] },
+              { :operaen_departamento_ids => [] }
             ]
           end
 

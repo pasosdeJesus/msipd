@@ -3,11 +3,11 @@
 module Sipd
   module Concerns
     module Models
-      module DominioPais
+      module DominioOperaenPais
         extend ActiveSupport::Concern
 
         included do
-          self.table_name = 'sipd_dominio_pais'
+          self.table_name = 'sipd_dominio_operaen_pais'
 
           belongs_to :dominio, class_name: 'Sipd::Dominio', 
             foreign_key: 'dominio_id'

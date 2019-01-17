@@ -18,7 +18,7 @@ module Sipd
             join_table: 'sipd_dominio_usuario',
             validate: true
 
-          scope :filtro_dominio_id, lambda {|d|
+          scope :filtro_dominio_ids, lambda {|d|
             joins(:dominio).where('sipd_dominio.id = ?', d)
           }
 

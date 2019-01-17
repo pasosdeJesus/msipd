@@ -45,7 +45,6 @@ class Ability  < Sipd::Ability
       when Ability::ROLADMIN, Ability::ROLDESARROLLADOR, Ability::ROLSUPERADMIN
         can :manage, Sip::Actorsocial
         can :manage, Sip::Persona
-        can :manage, Sip::Respaldo7z
         can :manage, Sip::Ubicacion
         can :manage, ::Usuario
         can :manage, :tablasbasicas
@@ -56,6 +55,7 @@ class Ability  < Sipd::Ability
         if usuario.rol == Ability::ROLSUPERADMIN ||
           usuario.rol == Ability::ROLDESARROLLADOR
           can :manage, Sipd::Dominio
+          can :manage, Sip::Respaldo7z
         end
       end
     end
