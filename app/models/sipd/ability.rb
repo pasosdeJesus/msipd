@@ -1,18 +1,5 @@
 # encoding: UTF-8
 
-# Extediendo basicas
-require 'sipd/ext/basicas_controller'
-require 'sipd/ext/actorsocial'
-require 'sipd/ext/anexo'
-require 'sipd/ext/etiqueta'
-require 'sipd/ext/fuenteprensa'
-require 'sipd/ext/grupo'
-require 'sipd/ext/grupoper'
-require 'sipd/ext/oficina'
-require 'sipd/ext/perfilactorsocial'
-require 'sipd/ext/persona'
-require 'sipd/ext/sectoractor'
-
 module Sipd
 	class Ability  < ::Sip::Ability
 
@@ -54,6 +41,16 @@ module Sipd
     def tablasbasicas 
       Sip::Ability::BASICAS_PROPIAS + 
         Sipd::Ability::BASICAS_PROPIAS
+    end
+
+    # Retorna los dominios en los que está el usuario actual
+    def dominio_ids(usuario)
+      if usuario.rol == ROLSUPERADMIN ||
+          usuario.rol == ROLDESARROLLADOR then
+        Sipd::Dominio.all.pluck(:id)
+      else
+        usuario.dominio_ids
+      end
     end
 
 	end

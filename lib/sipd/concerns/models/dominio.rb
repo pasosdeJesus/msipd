@@ -12,6 +12,13 @@ module Sipd
 
           self.table_name = 'sipd_dominio'
 
+          has_and_belongs_to_many :grupo, 
+            class_name: 'Sip::Grupo', 
+            foreign_key: "dominio_id", 
+            validate: true,
+            association_foreign_key: "grupo_id",
+            join_table: 'sipd_dominio_grupo'
+
           has_and_belongs_to_many :operaen_pais, 
             class_name: 'Sip::Pais',
             foreign_key: "dominio_id", 

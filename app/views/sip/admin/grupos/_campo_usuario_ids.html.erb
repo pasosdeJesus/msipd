@@ -1,0 +1,18 @@
+<%
+  col1 = ::Usuario.habilitados.joins(:dominio).
+    where('sipd_dominio.id' => current_ability.dominio_ids(current_usuario))
+  ids1 = col1.pluck(:id)
+  ids2 = []
+  if f.object.respond_to?('usuario') && 
+    f.object.send('usuario').respond_to?(:pluck)
+    ids2 = f.object.send('usuario').pluck(:id)
+  end
+  col = ::Usuario.where(id: ids1 | ids2)
+%>
+
+<%= f.association :usuario,
+  collection: col,
+  label_method: lambda {|r| r.presenta_nombre }, #:nombre,
+  value_method: :id ,
+  input_html: { class: 'chosen-select' } 
+%>
