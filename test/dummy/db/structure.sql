@@ -507,8 +507,7 @@ CREATE TABLE public.sip_grupo (
     fechacreacion date NOT NULL,
     fechadeshabilitacion date,
     created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL,
-    dominio_id integer DEFAULT 1
+    updated_at timestamp without time zone NOT NULL
 );
 
 
@@ -1086,6 +1085,16 @@ CREATE TABLE public.sipd_dominio (
     mandato character varying(5000) NOT NULL,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: sipd_dominio_grupo; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.sipd_dominio_grupo (
+    dominio_id bigint NOT NULL,
+    grupo_id bigint NOT NULL
 );
 
 
@@ -1670,6 +1679,14 @@ ALTER TABLE ONLY public.sip_persona
 
 
 --
+-- Name: sipd_dominio_grupo fk_rails_1a9738aae8; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sipd_dominio_grupo
+    ADD CONSTRAINT fk_rails_1a9738aae8 FOREIGN KEY (dominio_id) REFERENCES public.sipd_dominio(id);
+
+
+--
 -- Name: sip_grupoper fk_rails_3c81737399; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -1691,6 +1708,14 @@ ALTER TABLE ONLY public.sipd_dominio_usuario
 
 ALTER TABLE ONLY public.sipd_dominio_operaen_departamento
     ADD CONSTRAINT fk_rails_44dcf582d1 FOREIGN KEY (departamento_id) REFERENCES public.sip_departamento(id);
+
+
+--
+-- Name: sipd_dominio_grupo fk_rails_45459713c7; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sipd_dominio_grupo
+    ADD CONSTRAINT fk_rails_45459713c7 FOREIGN KEY (grupo_id) REFERENCES public.sip_grupo(id);
 
 
 --
@@ -1747,14 +1772,6 @@ ALTER TABLE ONLY public.sip_actorsocial_persona
 
 ALTER TABLE ONLY public.sip_grupo_usuario
     ADD CONSTRAINT fk_rails_8d24f7c1c0 FOREIGN KEY (sip_grupo_id) REFERENCES public.sip_grupo(id);
-
-
---
--- Name: sip_grupo fk_rails_8dc1c2d20e; Type: FK CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.sip_grupo
-    ADD CONSTRAINT fk_rails_8dc1c2d20e FOREIGN KEY (dominio_id) REFERENCES public.sipd_dominio(id);
 
 
 --
@@ -2011,6 +2028,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20190102140635'),
 ('20190102220733'),
 ('20190109125417'),
-('20190110191802');
+('20190110191802'),
+('20190123100500');
 
 
