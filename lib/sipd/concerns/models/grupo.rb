@@ -23,21 +23,11 @@ module Sipd
             joins(:dominio).where('sipd_dominio.id = ?', d)
           }
 
-#          validate :dominio_grupo
-#          def dominio_grupo
-#            if self.dominio.count < 0
-#              errors.add(:dominio, 'Debe tener al menos un dominio')
-#            else
-#              sobran = self.dominio_id - 
-#                current_ability.dominio_ids(current_usuario) 
-#              if sobran.count > 0
-#                errors.add(:dominio, 'No puede emplear los dominios ' + 
-#                           sobran.inject(', '))
-#              end
-#            end
-#          end
-        end
+          #validate :dominio_grupo
+          # Como esta validacion requiere current_usuario y current_ability
+          # se hace en el controlador
 
+        end #included
       end
     end
   end
