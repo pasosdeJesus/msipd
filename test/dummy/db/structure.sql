@@ -191,7 +191,6 @@ CREATE TABLE public.sip_actorsocial (
     web character varying(500),
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
-    dominio_id integer DEFAULT 1,
     fechadeshabilitacion date
 );
 
@@ -1076,6 +1075,16 @@ ALTER SEQUENCE public.sip_ubicacion_id_seq1 OWNED BY public.sip_ubicacion.id;
 
 
 --
+-- Name: sipd_actorsocial_dominio; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.sipd_actorsocial_dominio (
+    actorsocial_id bigint NOT NULL,
+    dominio_id bigint NOT NULL
+);
+
+
+--
 -- Name: sipd_dominio; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -1687,6 +1696,14 @@ ALTER TABLE ONLY public.sipd_dominio_grupo
 
 
 --
+-- Name: sipd_actorsocial_dominio fk_rails_259bca386f; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sipd_actorsocial_dominio
+    ADD CONSTRAINT fk_rails_259bca386f FOREIGN KEY (dominio_id) REFERENCES public.sipd_dominio(id);
+
+
+--
 -- Name: sip_grupoper fk_rails_3c81737399; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -1831,14 +1848,6 @@ ALTER TABLE ONLY public.sip_perfilactorsocial
 
 
 --
--- Name: sip_actorsocial fk_rails_d648932ca6; Type: FK CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.sip_actorsocial
-    ADD CONSTRAINT fk_rails_d648932ca6 FOREIGN KEY (dominio_id) REFERENCES public.sipd_dominio(id);
-
-
---
 -- Name: sipd_dominio_operaen_pais fk_rails_ed1af0ae84; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -1868,6 +1877,14 @@ ALTER TABLE ONLY public.sip_sectoractor
 
 ALTER TABLE ONLY public.sip_clase
     ADD CONSTRAINT fk_rails_fb09f016e4 FOREIGN KEY (id_municipio) REFERENCES public.sip_municipio(id);
+
+
+--
+-- Name: sipd_actorsocial_dominio fk_rails_fb63f7876b; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sipd_actorsocial_dominio
+    ADD CONSTRAINT fk_rails_fb63f7876b FOREIGN KEY (actorsocial_id) REFERENCES public.sip_actorsocial(id);
 
 
 --
@@ -2029,6 +2046,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20190102220733'),
 ('20190109125417'),
 ('20190110191802'),
-('20190123100500');
+('20190123100500'),
+('20190215110933');
 
 
