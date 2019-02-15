@@ -52,16 +52,16 @@ module Sipd
             return r
           end
 
-          def filtra_contenido_params
+          #def filtra_contenido_params
             # Limitamos dominios a los del usuario actual
-            params[:grupo][:dominio_ids] &= 
-              current_ability.dominio_ids(current_usuario).map(&:to_s)
+          #  params[:grupo][:dominio_ids] &= 
+              #current_ability.dominio_ids(current_usuario).map(&:to_s)
             # Limitamos miembros a los administrados por el usuario actual,
             # es decir a los de los dominios
-            params[:grupo][:usuario_ids] &= ::Usuario.joins(:dominio).where(
-              "sipd_dominio.id" => current_ability.dominio_ids(current_usuario)
-            ).pluck(:id).map(&:to_s)
-          end
+          #  params[:grupo][:usuario_ids] &= ::Usuario.joins(:dominio).where(
+         #     "sipd_dominio.id" => current_ability.dominio_ids(current_usuario)
+         #   ).pluck(:id).map(&:to_s)
+         # end
 
           # Validaciones adicionales a las del modelo que 
           # requieren current_usuario y current_ability y que
@@ -78,7 +78,8 @@ module Sipd
                 if sobran.count > 0
                   registro.errors.add(:dominio, 
                                       'No puede emplear los dominios ' + 
-                                      sobran.inject(', '))
+                                      Sipd::Dominio.where(id: sobran).
+                                      map(&:dominio).inject(', '))
                 end
               end
             end
