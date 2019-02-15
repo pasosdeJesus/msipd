@@ -3,13 +3,14 @@
 module Sipd
 	class Ability  < ::Sip::Ability
 
+    ROLDIR = 3
     ROLSUPERADMIN = 8
     ROLDESARROLLADOR = 9
 
     ROLES = [
       ["Administrador", ROLADMIN],  # 1
       ["", 0], # 2
-      ["", 0], # 3
+      ["Directivo", ROLDIR], # 3
       ["", 0], # 4
       ["Operador", ROLOPERADOR], # 5
       ["", 0], #6
@@ -20,10 +21,10 @@ module Sipd
 
     ROLES_CA = [
       "Administrar usuarios de su dominio. " +
-      "Administrar datos de tablas básicas de su dominio. ",
+      "Administrar datos de tablas básicas de su dominio. " +
       "Administrar actores sociales y personas de su dominio. ",
       "", #2
-      "", #3
+      "Los mismos del administrador en su dominio. ", #3
       "", #4
       "", #5
       "", #6
