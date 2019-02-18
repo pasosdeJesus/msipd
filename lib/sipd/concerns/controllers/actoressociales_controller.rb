@@ -15,7 +15,7 @@ module Sipd
           include Sip::Concerns::Controllers::ActoressocialesController
 
           def atributos_index
-            [:id, 
+            [ :id, 
               :dominio,
               :grupoper_id,
               { :sectoractor_ids => [] },
