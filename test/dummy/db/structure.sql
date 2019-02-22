@@ -788,8 +788,7 @@ CREATE TABLE public.sip_persona (
     updated_at timestamp without time zone,
     id_pais integer,
     nacionalde integer,
-    tdocumento_id integer,
-    dominio_id integer DEFAULT 1
+    tdocumento_id integer
 );
 
 
@@ -1143,6 +1142,16 @@ CREATE TABLE public.sipd_dominio_operaen_departamento (
 CREATE TABLE public.sipd_dominio_operaen_pais (
     dominio_id bigint NOT NULL,
     pais_id bigint NOT NULL
+);
+
+
+--
+-- Name: sipd_dominio_persona; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.sipd_dominio_persona (
+    dominio_id bigint NOT NULL,
+    persona_id bigint NOT NULL
 );
 
 
@@ -1680,14 +1689,6 @@ ALTER TABLE ONLY public.sip_etiqueta
 
 
 --
--- Name: sip_persona fk_rails_1a0807a32e; Type: FK CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.sip_persona
-    ADD CONSTRAINT fk_rails_1a0807a32e FOREIGN KEY (dominio_id) REFERENCES public.sipd_dominio(id);
-
-
---
 -- Name: sipd_dominio_grupo fk_rails_1a9738aae8; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -1701,6 +1702,14 @@ ALTER TABLE ONLY public.sipd_dominio_grupo
 
 ALTER TABLE ONLY public.sipd_actorsocial_dominio
     ADD CONSTRAINT fk_rails_259bca386f FOREIGN KEY (dominio_id) REFERENCES public.sipd_dominio(id);
+
+
+--
+-- Name: sipd_dominio_persona fk_rails_2d6a08d29d; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sipd_dominio_persona
+    ADD CONSTRAINT fk_rails_2d6a08d29d FOREIGN KEY (dominio_id) REFERENCES public.sipd_dominio(id);
 
 
 --
@@ -1821,6 +1830,14 @@ ALTER TABLE ONLY public.sip_anexo
 
 ALTER TABLE ONLY public.sip_actorsocial_sectoractor
     ADD CONSTRAINT fk_rails_9f61a364e0 FOREIGN KEY (sectoractor_id) REFERENCES public.sip_sectoractor(id);
+
+
+--
+-- Name: sipd_dominio_persona fk_rails_b1b0ce97ef; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sipd_dominio_persona
+    ADD CONSTRAINT fk_rails_b1b0ce97ef FOREIGN KEY (persona_id) REFERENCES public.sip_persona(id);
 
 
 --
@@ -2003,7 +2020,7 @@ ALTER TABLE ONLY public.sip_ubicacion
 -- PostgreSQL database dump complete
 --
 
-SET search_path TO "$user", public;
+SET search_path TO public, pg_catalog;
 
 INSERT INTO "schema_migrations" (version) VALUES
 ('20150413160156'),
@@ -2047,6 +2064,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20190109125417'),
 ('20190110191802'),
 ('20190123100500'),
-('20190215110933');
+('20190215110933'),
+('20190218155153');
 
 

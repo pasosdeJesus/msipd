@@ -3,6 +3,7 @@
 require 'bcrypt'
 
 require 'sip/concerns/controllers/actoressociales_controller'
+require 'sipd/concerns/controllers/sipd_controller'
 
 module Sipd
   module Concerns
@@ -13,8 +14,9 @@ module Sipd
 
         included do
           include Sip::Concerns::Controllers::ActoressocialesController
+          include Sipd::Concerns::Controllers::SipdController
 
-          def atributos_index
+          def atributos_show
             [ :id, 
               :dominio,
               :grupoper_id,
@@ -24,31 +26,30 @@ module Sipd
               :fax,
               :pais,
               :direccion,
+              :fechadeshabilitacion_localizada
+            ]
+          end
+
+          def atributos_index
+            atributos_show - [
+              :fechadeshabilitacion_localizada,
+              "fechadeshabilitacion_localizada" ] + [
               :habilitado
             ]
           end
 
-          # Validaciones adicionales a las del modelo que 
-          # requieren current_usuario y current_ability y que
-          # bien no se desean que generen una excepción o bien
-          # que no se pudieron realizar con cancancan
-          def validaciones(registro)
-            if current_usuario.rol != Ability::ROLSUPERADMIN &&
-               current_usuario.rol == Ability::ROLDESARROLLADOR
-              if registro.dominio_ids.count <= 0
-                registro.errors.add(:dominio, 
-                                    'Debe tener al menos un dominio')
-              else
-                sobran = registro.dominio_ids - 
-                  current_ability.dominio_ids(current_usuario) 
-                if sobran.count > 0
-                  registro.errors.add(:dominio, 
-                                      'No puede emplear los dominios ' + 
-                                      sobran.inject(', '))
-                end
-              end
-            end
-            return registro.errors.empty?
+          def atributos_form
+            a = atributos_show - [:id]
+            a[a.index(:grupoper_id)] = :grupoper
+            return a
+          end
+
+          # Elimina sin presentar mensajes de error (necesario 
+          # porque administradores sólo pueden guardar
+          # un actor social con un dominio, y si se valida
+          # que no tenga dominios antes de eliminar no podría eliminar).
+          def destroy(mens = "", verifica_tablas_union=true)
+            super(mens, false)
           end
 
           def lista_params_sipd

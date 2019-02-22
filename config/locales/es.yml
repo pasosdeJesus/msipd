@@ -5,6 +5,8 @@ es:
         dominio_ids: Dominios
         "{:dominio_ids=>[]}": Dominios
       "sipd/dominio":
-        "{:operaen_pais_ids=>[]}": Paises completos donde opera
-        "{:operaen_departamento_ids=>[]}": Departamentos donde opera
+        operaen_departamento: Departamentos/Estados donde opera
+        "{:operaen_departamento_ids=>[]}": Departamentos/Estados donde opera
+        operaen_pais: Paises completos donde opera
+        "{:operaen_pais_ids=>[]}": 
   

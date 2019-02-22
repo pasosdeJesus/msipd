@@ -39,7 +39,7 @@ module Sipd
           has_many :actorsocial_dominio, 
             class_name: 'Sipd::ActorsocialDominio',
             foreign_key: 'actorsocial_id',
-            validate: true
+            validate: true, dependent: :delete_all
           has_many :dominio, through: :actorsocial_dominio,
             class_name: 'Sipd::Dominio'
           scope :filtro_dominio, lambda {|d|
