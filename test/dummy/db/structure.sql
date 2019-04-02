@@ -2008,7 +2008,7 @@ ALTER TABLE ONLY public.sip_ubicacion
 
 SET search_path TO "$user", public;
 
-INSERT INTO "schema_migrations" (version) VALUES
+INSERT INTO public."schema_migrations" (version) VALUES
 ('20150413160156'),
 ('20150413160157'),
 ('20150413160158'),
@@ -2051,6 +2051,8 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20190110191802'),
 ('20190123100500'),
 ('20190215110933'),
-('20190218155153');
+('20190218155153'),
+('20190331111015'),
+('20190401175521');
 
 
