@@ -11,7 +11,9 @@ gemspec
 # Git. Remember to move these dependencies to your gemspec before releasing
 # your gem to rubygems.org.
 
-gem 'bigdecimal'
+
+# posibilidad de manejar módulos en Javascript https://github.com/rails/webpacker
+gem 'webpacker'
 
 # Motor de sistemas de información estilo Pasos de Jesús
 gem 'sip', git: "https://github.com/pasosdeJesus/sip.git", branch: :rails6
