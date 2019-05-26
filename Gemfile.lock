@@ -1,9 +1,8 @@
 GIT
   remote: https://github.com/pasosdeJesus/sip.git
-  revision: c0f502a0235fbca573649b5565e0c15b97529e32
-  branch: rails6
+  revision: af6aadb3643fdec37a72d55972f35aa3e50396ac
   specs:
-    sip (2.0.b5)
+    sip (2.0.b6)
       bootstrap-datepicker-rails
       cancancan
       chosen-rails
@@ -25,7 +24,7 @@ PATH
   remote: .
   specs:
     sipd (0.1.0)
-      rails (~> 6.0.0.rc1, >= 6.0.0.rc1)
+      rails (~> 6.0.0.rc1)
       sip
 
 GEM
