@@ -65,4 +65,11 @@ gem 'jquery-rails'
 gem "turbolinks"
 
 # To use a debugger
-#gem 'byebug', group: [:development, :test]
+#gem 'byebug', group: [:development, :test
+
+
+group :test do
+  gem "minitest"
+  gem 'simplecov'
+end
+
