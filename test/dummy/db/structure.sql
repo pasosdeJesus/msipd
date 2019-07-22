@@ -1184,8 +1184,8 @@ CREATE TABLE public.sipd_dominio_persona (
 --
 
 CREATE TABLE public.sipd_dominio_usuario (
-    dominio_id bigint NOT NULL,
-    usuario_id bigint NOT NULL
+    dominio_id integer NOT NULL,
+    usuario_id integer NOT NULL
 );
 
 
