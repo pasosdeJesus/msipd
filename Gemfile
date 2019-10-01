@@ -1,75 +1,53 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-# Declare your gem's dependencies in sipd.gemspec.
-# Bundler will treat runtime dependencies like base dependencies, and
-# development dependencies will be added by default to the :development group.
 gemspec
 
-# Declare any dependencies that are still in development here instead of in
-# your gemspec. These might include edge Rails or gems from your path or
-# Git. Remember to move these dependencies to your gemspec before releasing
-# your gem to rubygems.org.
 
+gem 'bootstrap-datepicker-rails'  # Control para elegir fechas
 
-# posibilidad de manejar módulos en Javascript https://github.com/rails/webpacker
-gem 'webpacker'
+#gem 'byebug', group: [:development, :test]
+
+gem 'cancancan'                  
+
+gem 'chosen-rails', git: "https://github.com/vtamara/chosen-rails.git", branch: 'several-fixes' # Campos de selección bonitos
+
+gem 'devise' # Autenticación
+
+gem 'devise-i18n'                
+
+gem 'font-awesome-rails' # Iconos de FontAwesome
+
+gem 'jquery-rails'                # Usamos jquery
+
+gem 'jquery-ui-rails'             # Usamos jquery
+
+gem 'paperclip'                   # Anexos
+
+gem 'rails-i18n'                 
+
+gem 'simple_form'   # Formularios
 
 # Motor de sistemas de información estilo Pasos de Jesús
 gem 'sip', git: "https://github.com/pasosdeJesus/sip.git"
 #gem 'sip', path: '../sip'
 
-# Anexos
-gem 'paperclip'                  
+gem "turbolinks" # Seguir enlaces más rápido. 
 
-# Formularios
-gem 'simple_form'  
-              
-# Control de acceso
-gem 'cancancan'                  
+gem 'twitter-bootstrap-rails'     # Entorno CSS Bootstrap
 
-# Autenticación
-gem 'devise'   
+gem 'twitter_cldr'                # Localiación e internacionalización
 
-# Localización e Internacionalización                  
-gem 'devise-i18n'                
+gem 'webpacker' # módulos en Javascript https://github.com/rails/webpacker
 
-# Localización e Internacionalización
-gem 'rails-i18n'                 
-
-# Pagina listados
-gem 'will_paginate'              
-
-# Entorno CSS Bootstrap
-gem 'twitter-bootstrap-rails'    
-
-# Iconos de FontAwesome
-gem 'font-awesome-rails'
-         
-# Usamos jquery
-gem 'jquery-ui-rails'            
-
-# Control para elegir fechas
-gem 'bootstrap-datepicker-rails' 
-
-# Localiación e internacionalización
-gem 'twitter_cldr'               
-
-# Campos de selección más funcionales
-gem 'chosen-rails'               
-
-# Usamos jquery
-gem 'jquery-rails'               
-
-# Seguir enlaces más rápido. Ver: https://github.com/rails/turbolinks
-gem "turbolinks"
-
-# To use a debugger
-#gem 'byebug', group: [:development, :test
+gem 'will_paginate' # Pagina listados
 
 
 group :test do
+
   gem "minitest"
+
   gem 'simplecov'
+
 end
 
