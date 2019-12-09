@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/pasosdeJesus/sip.git
-  revision: b18da62d54860909bba133ba1178ffe0588e1b48
+  revision: 5bf463eb4d593b1eb98abb866ad433e784faf9ea
   specs:
     sip (2.0.b7)
       cancancan
@@ -107,8 +107,8 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
-    devise-i18n (1.8.2)
-      devise (>= 4.6)
+    devise-i18n (1.9.0)
+      devise (>= 4.7.1)
     docile (1.3.2)
     erubi (1.9.0)
     execjs (2.7.0)
@@ -220,7 +220,7 @@ GEM
       thread_safe (~> 0.1)
     warden (1.2.8)
       rack (>= 2.0.6)
-    webpacker (4.2.0)
+    webpacker (4.2.2)
       activesupport (>= 4.2)
       rack-proxy (>= 0.6.1)
       railties (>= 4.2)
