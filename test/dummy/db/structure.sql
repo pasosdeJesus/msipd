@@ -297,6 +297,45 @@ ALTER SEQUENCE public.sip_anexo_id_seq1 OWNED BY public.sip_anexo.id;
 
 
 --
+-- Name: sip_bitacora; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.sip_bitacora (
+    id bigint NOT NULL,
+    fecha timestamp without time zone NOT NULL,
+    ip character varying(100),
+    usuario_id integer,
+    url character varying(1023),
+    params character varying(5000),
+    modelo character varying(511),
+    modelo_id integer,
+    operacion character varying(63),
+    detalle json,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: sip_bitacora_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.sip_bitacora_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: sip_bitacora_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.sip_bitacora_id_seq OWNED BY public.sip_bitacora.id;
+
+
+--
 -- Name: sip_clase; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -1330,6 +1369,13 @@ ALTER TABLE ONLY public.sip_anexo ALTER COLUMN id SET DEFAULT nextval('public.si
 
 
 --
+-- Name: sip_bitacora id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sip_bitacora ALTER COLUMN id SET DEFAULT nextval('public.sip_bitacora_id_seq'::regclass);
+
+
+--
 -- Name: sip_clase id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -1507,6 +1553,14 @@ ALTER TABLE ONLY public.sip_actorsocial
 
 ALTER TABLE ONLY public.sip_anexo
     ADD CONSTRAINT sip_anexo_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: sip_bitacora sip_bitacora_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sip_bitacora
+    ADD CONSTRAINT sip_bitacora_pkey PRIMARY KEY (id);
 
 
 --
@@ -1846,6 +1900,14 @@ ALTER TABLE ONLY public.sipd_actorsocial_dominio
 
 ALTER TABLE ONLY public.sipd_dominio_persona
     ADD CONSTRAINT fk_rails_2d6a08d29d FOREIGN KEY (dominio_id) REFERENCES public.sipd_dominio(id);
+
+
+--
+-- Name: sip_bitacora fk_rails_2db961766c; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sip_bitacora
+    ADD CONSTRAINT fk_rails_2db961766c FOREIGN KEY (usuario_id) REFERENCES public.usuario(id);
 
 
 --
@@ -2222,6 +2284,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20191205202150'),
 ('20191205204511'),
 ('20191219011910'),
-('20200228235200');
+('20200228235200'),
+('20200319183515');
 
 
