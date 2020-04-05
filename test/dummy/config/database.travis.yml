@@ -1,0 +1,17 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: postgres
+
+development:
+  <<: *default
+  database: sipd_des
+
+test:
+  <<: *default
+  database: sipd_pru
+
+production:
+  <<: *default
+  database: sipd
