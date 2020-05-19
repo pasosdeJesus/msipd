@@ -7,19 +7,19 @@ gemspec
 
 gem 'cancancan'                  
 
-gem 'devise' # Autenticación
+gem 'devise' , '>= 4.7.1' # Autenticación
 
-gem 'devise-i18n'                
+gem 'devise-i18n'                , '>= 1.9.1'
 
-gem 'paperclip'                   # Anexos
+gem 'paperclip'                   , '>= 6.1.0' # Anexos
 
-gem 'rails-i18n'                 
+gem 'rails-i18n'                 , '>= 6.0.0'
 
-gem 'simple_form'   # Formularios
+gem 'simple_form'   , '>= 5.0.2' # Formularios
 
 gem 'twitter_cldr'                # Localiación e internacionalización
 
-gem 'webpacker' # módulos en Javascript https://github.com/rails/webpacker
+gem 'webpacker' , '>= 5.1.1' # módulos en Javascript https://github.com/rails/webpacker
 
 gem 'will_paginate' # Pagina listados
 
