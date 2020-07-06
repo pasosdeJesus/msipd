@@ -86,4 +86,6 @@ caso de persona y actor social tal vez personalidades públicas (no util?).
 
 ## Licencia
 
-Domino público de acuerdo a legislación colombiana.
+Empleamos la licencia ISC, puede verla en español en <https://github.com/pasosdeJesus/sipd/blob/master/LICENCIA.md>.
+
+Es practicamente equivalente a Dominio Público de acuerdo a la legislación colombiana, ver <https://github.com/pasosdeJesus/sip/wiki/Modificaciones-a-la-legislaci%C3%B3n-relacionada-con-dominio-p%C3%BAblico-en-Colombia>
