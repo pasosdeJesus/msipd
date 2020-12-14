@@ -5,15 +5,17 @@ gemspec
 
 #gem 'byebug', group: [:development, :test]
 
-gem 'cancancan'                  
+gem 'cancancan'
 
 gem 'devise' # Autenticación
 
-gem 'devise-i18n'                
+gem 'devise-i18n'
 
 gem 'paperclip'                   # Anexos
 
-gem 'rails-i18n'                 
+gem 'rails', '~> 6.0.3.4'
+
+gem 'rails-i18n'
 
 gem 'simple_form'   # Formularios
 
@@ -25,8 +27,8 @@ gem 'will_paginate' # Pagina listados
 
 
 #####
-# Motores que se sobrecargan vistas (deben ponerse en orden de apilamiento 
-# lógico y no alfabetico como las gemas anteriores) 
+# Motores que se sobrecargan vistas (deben ponerse en orden de apilamiento
+# lógico y no alfabetico como las gemas anteriores)
 
 gem 'sip', # Motor generico
   git: 'https://github.com/pasosdeJesus/sip.git'
