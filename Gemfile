@@ -11,6 +11,8 @@ gem 'devise' # Autenticación
 
 gem 'devise-i18n'
 
+gem 'nokogiri', '>=1.11.0.rc4'
+
 gem 'paperclip'                   # Anexos
 
 gem 'rails', '~> 6.1.0'
