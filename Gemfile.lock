@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/pasosdeJesus/sip.git
-  revision: f021de3e287f56a27d9b05d0335594a12abee2a8
+  revision: f82f9942382fb64fc83f69b267b4878a6d93165a
   specs:
     sip (2.0.b10)
       cancancan
@@ -20,7 +20,7 @@ PATH
   remote: .
   specs:
     sipd (2.0.b6)
-      rails (~> 6.0.3.4)
+      rails
       sip
 
 GEM
