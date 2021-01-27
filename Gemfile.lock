@@ -147,6 +147,8 @@ GEM
       mimemagic (~> 0.3.0)
       terrapin (~> 0.6.0)
     pg (1.2.3)
+    puma (5.1.1)
+      nio4r (~> 2.0)
     racc (1.5.2)
     rack (2.2.3)
     rack-proxy (0.6.5)
@@ -246,6 +248,7 @@ DEPENDENCIES
   nokogiri (>= 1.11.1)
   paperclip
   pg
+  puma
   rails (~> 6.0.3.4)
   rails-i18n
   simple_form
@@ -257,4 +260,4 @@ DEPENDENCIES
   will_paginate
 
 BUNDLED WITH
-   2.1.4
+   2.2.3

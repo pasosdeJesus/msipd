@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     resources :usuarios, path_names: { new: 'nuevo', edit: 'edita' }  
 
     root 'sip/hogar#index'
-    mount Sip::Engine => "/sipd"
-    mount Sipd::Engine => "/sipd"
-  end
+  end # scope
+  mount Sip::Engine => "/sipd"
+  mount Sipd::Engine => "/sipd"
 end
