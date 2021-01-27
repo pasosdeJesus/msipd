@@ -13,8 +13,6 @@ una etiqueta, un actor social, una persona.
 
 Y sólo están disponibles cuando se ingresan por un dominio las de ese dominio.
 
-
-
 ## Instalación
 Agregue esta líne al Gemfile de su aplicación/motor:
 
@@ -26,10 +24,6 @@ Y ejecute:
 ```bash
 $ bundle
 ```
-
-## Contribuciones
-
-Se aprecian
 
 ## Rationale
 
