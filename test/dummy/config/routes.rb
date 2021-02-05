@@ -16,6 +16,6 @@ Rails.application.routes.draw do
 
     root 'sip/hogar#index'
   end # scope
-  mount Sip::Engine, at: rutarel
-  mount Sipd::Engine, at: rutarel
+  mount Sip::Engine, at: rutarel, as: 'sip'
+  mount Sipd::Engine, at: rutarel, as: 'sipd'
 end
