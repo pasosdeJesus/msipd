@@ -15,8 +15,6 @@ gem 'nokogiri', '>=1.11.1'
 
 gem 'paperclip'                   # Anexos
 
-gem 'puma' 
-
 gem 'rails', '~> 6.0.3.4'
 
 gem 'rails-i18n'
@@ -35,15 +33,20 @@ gem 'will_paginate' # Pagina listados
 # lógico y no alfabetico como las gemas anteriores)
 
 gem 'sip', # Motor generico
-  git: 'https://github.com/pasosdeJesus/sip.git'
+  git: 'https://github.com/pasosdeJesus/sip.git', branch: :main
 #gem 'sip', path: '../sip'
 
 
 group :development, :test do
-  gem 'colorize'
-
   #gem 'byebug'
+  
+  gem 'colorize'
+  
+  gem 'dotenv-rails'
+
+  gem 'puma' 
 end
+
 
 
 group :test do
