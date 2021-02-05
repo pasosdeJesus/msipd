@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 require 'pathname'
 
+`export CXX=c++`
 APP_ROOT = File.expand_path('..', __dir__)
 Dir.chdir(APP_ROOT) do
   executable_path = ENV["PATH"].split(File::PATH_SEPARATOR).find do |path|

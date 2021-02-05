@@ -83,6 +83,7 @@ GEM
       tzinfo (~> 1.1)
       zeitwerk (~> 2.2, >= 2.2.2)
     bcrypt (3.1.16)
+    bindex (0.8.1)
     builder (3.2.4)
     camertron-eprun (1.1.1)
     cancancan (3.2.1)
@@ -230,6 +231,11 @@ GEM
       thread_safe (~> 0.1)
     warden (1.2.9)
       rack (>= 2.0.9)
+    web-console (4.1.0)
+      actionview (>= 6.0.0)
+      activemodel (>= 6.0.0)
+      bindex (>= 0.4.0)
+      railties (>= 6.0.0)
     webpacker (5.2.1)
       activesupport (>= 5.2)
       rack-proxy (>= 0.6.1)
@@ -262,6 +268,7 @@ DEPENDENCIES
   sip!
   sipd!
   twitter_cldr
+  web-console
   webpacker
   will_paginate
 

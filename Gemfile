@@ -3,8 +3,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 gemspec
 
-#gem 'byebug', group: [:development, :test]
-
 gem 'cancancan'
 
 gem 'devise' # Autenticación
@@ -36,6 +34,11 @@ gem 'sip', # Motor generico
   git: 'https://github.com/pasosdeJesus/sip.git', branch: :main
 #gem 'sip', path: '../sip'
 
+group :development do
+  gem 'puma' 
+
+  gem 'web-console' 
+end
 
 group :development, :test do
   #gem 'byebug'
@@ -43,8 +46,6 @@ group :development, :test do
   gem 'colorize'
   
   gem 'dotenv-rails'
-
-  gem 'puma' 
 end
 
 
