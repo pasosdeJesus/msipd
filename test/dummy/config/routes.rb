@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  scope '/sipd' do
+
+  rutarel = ENV.fetch('RUTA_RELATIVA', 'sip/')
+  scope rutarel do 
     devise_scope :usuario do
       get 'sign_out' => 'devise/sessions#destroy'
     end
@@ -14,6 +16,6 @@ Rails.application.routes.draw do
 
     root 'sip/hogar#index'
   end # scope
-  mount Sip::Engine => "/sipd"
-  mount Sipd::Engine => "/sipd"
+  mount Sip::Engine, at: rutarel
+  mount Sipd::Engine, at: rutarel
 end
