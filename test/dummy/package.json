@@ -20,6 +20,7 @@
   },
   "version": "0.1.0",
   "devDependencies": {
+    "dns-packet": "^1.3.2",
     "expose-loader": "^1.0.0",
     "webpack-dev-server": "^3.11.2"
   }
