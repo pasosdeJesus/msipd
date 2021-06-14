@@ -25,20 +25,20 @@ module Sipd
           #No ocurre en vista resumen ni en formulario
           #
           #NO se soluciona al usar has_many y otra con :trough pero
-          #se atenua más facil porque si opera bien orgsocial_dominio
+          #se atenua más facil porque si opera bien dominio_orgsocial
           #
           #has_and_belongs_to_many :dominio, 
           #  class_name: 'Sipd::Dominio',
           #  foreign_key: "orgsocial_id", 
           #  validate: true,
           #  association_foreign_key: "dominio_id",
-          #  join_table: 'sipd_orgsocial_dominio'
+          #  join_table: 'sipd_dominio_orgsocial'
  
-          has_many :orgsocial_dominio, 
-            class_name: 'Sipd::OrgsocialDominio',
+          has_many :dominio_orgsocial, 
+            class_name: 'Sipd::DominioOrgsocial',
             foreign_key: 'orgsocial_id',
             validate: true, dependent: :delete_all
-          has_many :dominio, through: :orgsocial_dominio,
+          has_many :dominio, through: :dominio_orgsocial,
             class_name: 'Sipd::Dominio'
           scope :filtro_dominio, lambda {|d|
             joins(:dominio).where('sipd_dominio.id = ?', d)
@@ -51,7 +51,7 @@ module Sipd
           def presenta(atr)
             case atr.to_s
             when 'dominio'
-              r = orgsocial_dominio.inject ("") { |memo, ad|
+              r = dominio_orgsocial.inject ("") { |memo, ad|
                 memo == '' ? ad.dominio.dominio : memo + "; " + ad.dominio.dominio
               }
               return r

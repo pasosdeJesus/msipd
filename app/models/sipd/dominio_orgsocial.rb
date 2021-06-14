@@ -1,7 +1,5 @@
-# encoding: UTF-8
-
 module Sipd
-  class OrgsocialDominio < ActiveRecord::Base
+  class DominioOrgsocial < ActiveRecord::Base
     belongs_to :orgsocial, class_name: 'Sip::Orgsocial',
       foreign_key: 'orgsocial_id'
     belongs_to :dominio, class_name: 'Sipd::Dominio',

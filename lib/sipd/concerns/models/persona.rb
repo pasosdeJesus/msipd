@@ -24,7 +24,7 @@ module Sipd
           #No ocurre en vista resumen ni en formulario
           #
           #NO se soluciona al usar has_many y otra con :trough pero
-          #se atenua más facil porque si opera bien orgsocial_dominio
+          #se atenua más facil porque si opera bien dominio_orgsocial
           #
           has_and_belongs_to_many :dominio, 
             class_name: 'Sipd::Dominio',
