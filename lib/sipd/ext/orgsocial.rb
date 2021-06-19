@@ -1,6 +1,4 @@
-# encoding: UTF-8
-
-Sip::Sectoractor.class_eval  do
+Sip::Orgsocial.class_eval  do
     def verifica_sipd
       return true
     end

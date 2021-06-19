@@ -1,5 +1,3 @@
-# encoding: UTF-8
-
 require 'sip/concerns/models/persona'
 
 module Sipd
@@ -13,7 +11,7 @@ module Sipd
 
           # Problema en listado porque solo presentaba un dominio
           # Al detener con byebug en 3
-          # a=Sip::Actorsocial.find(3);
+          # a=Sip::Orgsocial.find(3);
           #  self.id
           #  3
           # (byebug) a==self
@@ -26,7 +24,7 @@ module Sipd
           #No ocurre en vista resumen ni en formulario
           #
           #NO se soluciona al usar has_many y otra con :trough pero
-          #se atenua más facil porque si opera bien actorsocial_dominio
+          #se atenua más facil porque si opera bien orgsocial_dominio
           #
           has_and_belongs_to_many :dominio, 
             class_name: 'Sipd::Dominio',

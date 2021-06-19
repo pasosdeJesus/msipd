@@ -37,13 +37,13 @@ class Ability  < Sipd::Ability
     if usuario && usuario.rol then
       case usuario.rol 
       when Ability::ROLANALI
-        can :read, Sip::Actorsocial
+        can :read, Sip::Orgsocial
         can :read, Sip::Persona
         can :read, Sip::Ubicacion
         can :new, Sip::Ubicacion
         can [:update, :create, :destroy], Sip::Ubicacion
       when Ability::ROLADMIN, Ability::ROLDESARROLLADOR, Ability::ROLSUPERADMIN
-        can :manage, Sip::Actorsocial
+        can :manage, Sip::Orgsocial
         can :manage, Sip::Persona
         can :manage, Sip::Ubicacion
         can :manage, ::Usuario

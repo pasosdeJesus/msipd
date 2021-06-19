@@ -1,6 +1,4 @@
-# encoding: UTF-8
-
-Sip::Perfilactorsocial.class_eval  do
+Sip::Sectororgsocial.class_eval  do
     def verifica_sipd
       return true
     end
