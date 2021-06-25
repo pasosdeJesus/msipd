@@ -34,7 +34,7 @@ gem 'will_paginate' # Pagina listados
 # lógico y no alfabetico como las gemas anteriores)
 
 gem 'sip', # Motor generico
-  git: 'https://github.com/pasosdeJesus/sip.git', branch: :main
+  git: 'https://github.com/pasosdeJesus/sip.git', branch: :webpacker6
 #gem 'sip', path: '../sip'
 
 group :development do
