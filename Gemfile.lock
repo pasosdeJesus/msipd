@@ -28,6 +28,16 @@ GIT
       twitter_cldr
       will_paginate
 
+GIT
+  remote: https://github.com/rails/webpacker
+  revision: beb645ecbf707eb4f3311e61b05abb67fe0ca010
+  specs:
+    webpacker (6.0.0.beta.7)
+      activesupport (>= 5.2)
+      rack-proxy (>= 0.6.1)
+      railties (>= 5.2)
+      semantic_range (>= 2.3.0)
+
 PATH
   remote: .
   specs:
@@ -251,11 +261,6 @@ GEM
       activemodel (>= 6.0.0)
       bindex (>= 0.4.0)
       railties (>= 6.0.0)
-    webpacker (5.4.0)
-      activesupport (>= 5.2)
-      rack-proxy (>= 0.6.1)
-      railties (>= 5.2)
-      semantic_range (>= 2.3.0)
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
@@ -284,7 +289,7 @@ DEPENDENCIES
   sipd!
   twitter_cldr
   web-console
-  webpacker
+  webpacker!
   will_paginate
 
 BUNDLED WITH
