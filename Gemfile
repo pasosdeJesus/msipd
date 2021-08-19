@@ -23,8 +23,7 @@ gem 'simple_form'   # Formularios
 
 gem 'twitter_cldr'                # Localiación e internacionalización
 
-gem 'webpacker',#, '~> 5.4'       # Traduce y compila modulos Javascript
-  git: 'https://github.com/rails/webpacker'
+gem 'webpacker', '~> 6.0.0.rc.1'       # Traduce y compila modulos Javascript
 
 gem 'will_paginate' # Pagina listados
 
