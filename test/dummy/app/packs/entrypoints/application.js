@@ -25,6 +25,9 @@ import $ from "expose-loader?exposes=$,jQuery!jquery";
 
 import "popper.js"
 import "bootstrap"
+
+import { Tooltip, Toast, Popover } from 'bootstrap';
+
 import "chosen-js/chosen.jquery"
 import 'bootstrap-datepicker'
 import 'bootstrap-datepicker/dist/locales/bootstrap-datepicker.es.min.js'
