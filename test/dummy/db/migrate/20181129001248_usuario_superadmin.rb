@@ -1,5 +1,3 @@
-# encoding: UTF-8
-#
 class UsuarioSuperadmin < ActiveRecord::Migration[5.2]
   def up
     execute <<-SQL

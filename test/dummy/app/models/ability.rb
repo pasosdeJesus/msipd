@@ -1,5 +1,3 @@
-# encoding: UTF-8
-
 class Ability  < Sipd::Ability
 
 

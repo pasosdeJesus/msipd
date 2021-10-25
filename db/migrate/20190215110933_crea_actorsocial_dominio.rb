@@ -1,5 +1,3 @@
-# encoding: UTF-8
-
 class CreaActorsocialDominio < ActiveRecord::Migration[5.2]
   def up
     create_join_table :sip_actorsocial, :sipd_dominio, {

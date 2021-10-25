@@ -1,5 +1,3 @@
-# encoding: UTF-8
-
 class CreaDominioPersona < ActiveRecord::Migration[5.2]
 
   def up

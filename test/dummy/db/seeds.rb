@@ -1,5 +1,3 @@
-# encoding: UTF-8
-
 conexion = ActiveRecord::Base.connection();
 
 conexion.execute("INSERT INTO public.sipd_dominio (id, dominio, mandato, 

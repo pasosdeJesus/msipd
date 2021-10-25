@@ -1,4 +1,3 @@
-# encoding: UTF-8
 require_dependency "sipd/concerns/controllers/dominios_controller"
 
 module Sipd

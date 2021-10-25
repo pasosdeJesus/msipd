@@ -1,5 +1,3 @@
-# encoding: UTF-8
-
 require 'sipd/concerns/models/dominio_operaen_departamento'
 
 module Sipd

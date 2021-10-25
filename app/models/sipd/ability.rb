@@ -1,5 +1,3 @@
-# encoding: UTF-8
-
 module Sipd
 	class Ability  < ::Sip::Ability
 

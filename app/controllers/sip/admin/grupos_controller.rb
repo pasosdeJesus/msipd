@@ -1,5 +1,3 @@
-# encoding: UTF-8
-
 require 'sipd/concerns/controllers/grupos_controller'
 module Sip
   module Admin

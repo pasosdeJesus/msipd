@@ -1,5 +1,3 @@
-# encoding: UTF-8
-
 module Sipd
   class DominioUsuario < ActiveRecord::Base
     belongs_to :dominio, class_name: 'Sipd::Dominio',

@@ -1,5 +1,3 @@
-# encoding: UTF-8
-
 module Sipd
   module Concerns
     module Models

@@ -1,5 +1,3 @@
-# encoding: UTF-8
-
 # Lo tipico de controladores que descienden de sipd
 
 module Sipd

@@ -1,5 +1,3 @@
-# encoding: UTF-8
-
 require 'bcrypt'
 
 require 'sip/concerns/controllers/personas_controller'

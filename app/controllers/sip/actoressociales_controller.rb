@@ -1,5 +1,3 @@
-# encoding: UTF-8
-
 require 'sipd/concerns/controllers/actoressociales_controller'
 module Sip
   class ActoressocialesController < Sip::ModelosController

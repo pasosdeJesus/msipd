@@ -1,5 +1,3 @@
-# encoding: UTF-8
-
 Sip::Persona.class_eval  do
     def verifica_sipd
       return true
