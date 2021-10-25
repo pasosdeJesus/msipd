@@ -54,5 +54,45 @@ module Sipd
       end
     end
 
-	end
+    # Se definen habilidades con cancancan
+    # Util en motores y aplicaciones de prueba
+    # En aplicaciones es mejor escribir completo el modelo de autorización
+    # para facilitar su análisis y evitar cambios al actualizar motores
+    # @usuario Usuario que hace petición
+    def initialize_sipd(usuario = nil)
+      # El primer argumento para can es la acción a la que se da permiso, 
+      # el segundo es el recurso sobre el que puede realizar la acción, 
+      # el tercero opcional es un diccionario de condiciones para filtrar 
+      # más (e.g :publicado => true).
+      #
+      # El primer argumento puede ser :manage para indicar toda acción, 
+      # o grupos de acciones como :read (incluye :show e :index), 
+      # :create, :update y :destroy.
+      #
+      # Si como segundo argumento usa :all se aplica a todo recurso, 
+      # o puede ser una clase.
+      # 
+      # Detalles en el wiki de cancan: 
+      #   https://github.com/ryanb/cancan/wiki/Defining-Abilities
+
+      can :read, Sipd::Dominio
+      initialize_sip(usuario)
+      # No se autorizan usuarios con fecha de deshabilitación
+      if !usuario || usuario.fechadeshabilitacion
+        return
+      end
+      if usuario && usuario.rol then
+        case usuario.rol 
+        when Ability::ROLADMIN, Ability::ROLDESARROLLADOR, Ability::ROLSUPERADMIN
+          cannot manage, Sip::Respaldo7z
+          if usuario.rol == Ability::ROLSUPERADMIN ||
+              usuario.rol == Ability::ROLDESARROLLADOR
+            can :manage, Sipd::Dominio
+            can :manage, Sip::Respaldo7z
+          end
+        end
+      end
+    end # def initialize
+
+  end
 end
