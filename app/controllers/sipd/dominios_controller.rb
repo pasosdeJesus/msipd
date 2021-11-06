@@ -1,4 +1,4 @@
-require_dependency "sipd/concerns/controllers/dominios_controller"
+require 'sipd/concerns/controllers/dominios_controller'
 
 module Sipd
   class DominiosController < Sip::ModelosController
