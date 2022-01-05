@@ -5,9 +5,15 @@ gemspec
 
 gem 'cancancan'
 
+gem 'cocoon', git: 'https://github.com/vtamara/cocoon.git', branch: 'new_id_with_ajax' # Formularios anidados (algunos con ajax)
+
+gem 'coffee-rails'
+
 gem 'devise' # Autenticación
 
 gem 'devise-i18n'
+
+gem 'jsbundling-rails'
 
 gem 'kt-paperclip',                 # Anexos
   git: 'https://github.com/kreeti/kt-paperclip.git'
@@ -19,13 +25,13 @@ gem 'rails', '~> 7.0'
 
 gem 'rails-i18n'
 
+gem 'sassc-rails'
+
 gem 'simple_form'   # Formularios
 
 gem 'sprockets-rails'
 
 gem 'twitter_cldr'                # Localiación e internacionalización
-
-gem 'webpacker', '~> 6.0.0.rc.1'       # Traduce y compila modulos Javascript
 
 gem 'will_paginate' # Pagina listados
 
