@@ -3,7 +3,8 @@ Sip::Persona.class_eval  do
       return true
     end
 
-    belongs_to :dominio, class_name: 'Sipd::Dominio', validate: true
+    belongs_to :dominio, class_name: 'Sipd::Dominio', validate: true, 
+      optional: false
 
     scope :filtro_dominio_id, lambda {|d|
       where(dominio_id: d)

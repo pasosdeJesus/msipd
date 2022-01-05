@@ -8,9 +8,9 @@ module Sipd
           self.table_name = 'sipd_dominio_operaen_departamento'
 
           belongs_to :dominio, class_name: 'Sipd::Dominio', 
-            foreign_key: 'dominio_id'
+            foreign_key: 'dominio_id', optional: false
           belongs_to :departamento, class_name: 'Sip::Departamento',
-            foreign_key: 'departamento_id'
+            foreign_key: 'departamento_id', optional: false
 
         end # included
 

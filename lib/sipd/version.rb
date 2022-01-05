@@ -1,3 +1,3 @@
 module Sipd
-  VERSION = '2.0.b6'
+  VERSION = '2.1a1'
 end

@@ -1,8 +1,8 @@
 module Sipd
   class DominioUsuario < ActiveRecord::Base
     belongs_to :dominio, class_name: 'Sipd::Dominio',
-      foreign_key: 'dominio_id'
+      foreign_key: 'dominio_id', optional: false
     belongs_to :usuario, class_name: 'Sip::Usuario',
-      foreign_key: 'usuario_id'
+      foreign_key: 'usuario_id', optional: false
   end
 end

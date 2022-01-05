@@ -14,12 +14,14 @@ gem 'kt-paperclip',                 # Anexos
 
 gem 'nokogiri', '>=1.11.1'
 
-gem 'rails', '~> 6.1'
+gem 'rails', '~> 7.0'
   #git: 'https://github.com/rails/rails.git', branch: '6-1-stable'
 
 gem 'rails-i18n'
 
 gem 'simple_form'   # Formularios
+
+gem 'sprockets-rails'
 
 gem 'twitter_cldr'                # Localiación e internacionalización
 
@@ -33,7 +35,7 @@ gem 'will_paginate' # Pagina listados
 # lógico y no alfabetico como las gemas anteriores)
 
 gem 'sip', # Motor generico
-  git: 'https://github.com/pasosdeJesus/sip.git', branch: :main
+  git: 'https://github.com/pasosdeJesus/sip.git', branch: :rails7jses
 #gem 'sip', path: '../sip'
 
 group :development do
