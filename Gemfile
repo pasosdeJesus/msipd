@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 gemspec
 
+gem 'babel-transpiler'
+
 gem 'cancancan'
 
 gem 'cocoon', git: 'https://github.com/vtamara/cocoon.git', branch: 'new_id_with_ajax' # Formularios anidados (algunos con ajax)
@@ -30,6 +32,10 @@ gem 'sassc-rails'
 gem 'simple_form'   # Formularios
 
 gem 'sprockets-rails'
+
+gem 'stimulus-rails'
+
+gem 'turbo-rails'
 
 gem 'twitter_cldr'                # Localiación e internacionalización
 

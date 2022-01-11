@@ -101,6 +101,10 @@ GEM
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
       tzinfo (~> 2.0)
+    babel-source (5.8.35)
+    babel-transpiler (0.7.0)
+      babel-source (>= 4.0, < 6)
+      execjs (~> 2.0)
     bcrypt (3.1.16)
     bindex (0.8.1)
     builder (3.2.4)
@@ -222,10 +226,14 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
+    stimulus-rails (1.0.2)
+      railties (>= 6.0.0)
     terrapin (0.6.0)
       climate_control (>= 0.0.3, < 1.0)
     thor (1.2.1)
     tilt (2.0.10)
+    turbo-rails (7.1.1)
+      rails (>= 6.0.0)
     twitter_cldr (6.11.0)
       camertron-eprun
       cldr-plurals-runtime-rb (~> 1.1)
@@ -249,6 +257,7 @@ PLATFORMS
   x86_64-openbsd
 
 DEPENDENCIES
+  babel-transpiler
   cancancan
   cocoon!
   coffee-rails
@@ -270,6 +279,8 @@ DEPENDENCIES
   sip!
   sipd!
   sprockets-rails
+  stimulus-rails
+  turbo-rails
   twitter_cldr
   web-console
   will_paginate
