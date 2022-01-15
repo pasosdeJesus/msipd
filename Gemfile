@@ -67,6 +67,7 @@ end
 
 
 group :test do
+  gem 'cuprite'
 
   gem "minitest"
 
