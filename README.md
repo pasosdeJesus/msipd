@@ -1,8 +1,6 @@
 # Motor rails para agregar dominio a sip
-[![Revisado por Hound](https://img.shields.io/badge/Reviewed_by-Hound-8E64B0.svg)](https://houndci.com) [![Estado Construcción](https://gitlab.com/pasosdeJesus/sipd/badges/main/pipeline.svg)](https://gitlab.com/pasosdeJesus/sipd/-/pipelines) [![Clima del Código](https://codeclimate.com/github/pasosdeJesus/sipd/badges/gpa.svg)](https://codeclimate.com/github/pasosdeJesus/sipd) [![Cobertura de Pruebas](https://codeclimate.com/github/pasosdeJesus/sipd/badges/coverage.svg)](https://codeclimate.com/github/pasosdeJesus/sipd) [![security](https://hakiri.io/github/pasosdeJesus/sipd/master.svg)](https://hakiri.io/github/pasosdeJesus/sipd/master)
 
-
-
+[![Revisado por Hound](https://img.shields.io/badge/Reviewed_by-Hound-8E64B0.svg)](https://houndci.com) Pruebas y seguridad: [![Estado Construcción](https://gitlab.com/pasosdeJesus/sipd/badges/main/pipeline.svg)](https://gitlab.com/pasosdeJesus/sipd/-/pipelines?page=1&scope=all&ref=main) [![Clima del Código](https://codeclimate.com/github/pasosdeJesus/sipd/badges/gpa.svg)](https://codeclimate.com/github/pasosdeJesus/sipd) [![Cobertura de Pruebas](https://codeclimate.com/github/pasosdeJesus/sipd/badges/coverage.svg)](https://codeclimate.com/github/pasosdeJesus/sipd)
 
 ![Logo de sipd](https://raw.githubusercontent.com/pasosdeJesus/sipd/master/test/dummy/app/assets/images/logo.jpg)
 
