@@ -55,6 +55,7 @@ test:
     #- psql -h postgres -U runner --set ON_ERROR_STOP=1 --no-psqlrc --file /builds/pasosdeJesus/si_jrscol/db/structure.sql sijrscol_pru
     - bin/rails db:drop db:create db:setup
     - bin/rails sip:indices
+    - cd ../..
   script:
     - CONFIG_HOSTS=www.example.com bin/rails test
     - ./cc-test-reporter after-build -t simplecov --exit-code $?
