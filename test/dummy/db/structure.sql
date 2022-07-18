@@ -258,7 +258,8 @@ CREATE TABLE public.sip_departamento (
     updated_at timestamp without time zone,
     observaciones character varying(5000) COLLATE public.es_co_utf_8,
     codiso character varying(6),
-    catiso character varying(64)
+    catiso character varying(64),
+    codreg integer
 );
 
 
@@ -277,7 +278,8 @@ CREATE TABLE public.sip_municipio (
     fechadeshabilitacion date,
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
-    observaciones character varying(5000) COLLATE public.es_co_utf_8
+    observaciones character varying(5000) COLLATE public.es_co_utf_8,
+    codreg integer
 );
 
 
@@ -2834,6 +2836,8 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20220420154535'),
 ('20220422190546'),
 ('20220428145059'),
-('20220613224844');
+('20220613224844'),
+('20220713200101'),
+('20220713200444');
 
 
