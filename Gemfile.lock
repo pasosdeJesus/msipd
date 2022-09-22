@@ -11,7 +11,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sip.git
-  revision: 69e9b0137cc087fd00f6b56cd6064c349f85009c
+  revision: d366395d1d30a2ccbe69a0c858aa3f2598b1c829
   branch: main
   specs:
     sip (2.1a2)
@@ -288,7 +288,7 @@ GEM
     thor (1.2.1)
     tilt (2.0.11)
     timeout (0.3.0)
-    turbo-rails (1.1.1)
+    turbo-rails (1.3.0)
       actionpack (>= 6.0.0)
       activejob (>= 6.0.0)
       railties (>= 6.0.0)
