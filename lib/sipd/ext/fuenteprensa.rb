@@ -1,4 +1,4 @@
-Sip::Fuenteprensa.class_eval  do
+Msip::Fuenteprensa.class_eval  do
     def verifica_sipd
       return true
     end

@@ -1,4 +1,4 @@
-Sip::Oficina.class_eval  do
+Msip::Oficina.class_eval  do
     def verifica_sipd
       return true
     end

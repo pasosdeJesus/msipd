@@ -1,4 +1,4 @@
-require 'sip/admin/basicas_controller'
+require 'msip/admin/basicas_controller'
 
 module Sipd
   module Ext
@@ -27,7 +27,7 @@ end
 
 
 
-Sip::Admin::BasicasController.class_eval do
+Msip::Admin::BasicasController.class_eval do
       include NavbarHelper
       helper NavbarHelper
   prepend Sipd::Ext::BasicasController

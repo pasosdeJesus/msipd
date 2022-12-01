@@ -1,4 +1,4 @@
-require 'sip/basica'
+require 'msip/basica'
 
 module Sipd
   module Ext
@@ -20,6 +20,6 @@ module Sipd
 end
 
 
-#Sip::Basica.class_eval do
+#Msip::Basica.class_eval do
 #  prepend Sipd::Ext::Basica
 #end

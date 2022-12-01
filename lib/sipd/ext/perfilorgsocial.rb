@@ -1,4 +1,4 @@
-Sip::Perfilorgsocial.class_eval  do
+Msip::Perfilorgsocial.class_eval  do
     def verifica_sipd
       return true
     end

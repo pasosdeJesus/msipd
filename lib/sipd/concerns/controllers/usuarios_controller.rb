@@ -1,6 +1,6 @@
 require 'bcrypt'
 
-require 'sip/concerns/controllers/usuarios_controller'
+require 'msip/concerns/controllers/usuarios_controller'
 require 'sipd/concerns/controllers/sipd_controller'
 
 module Sipd
@@ -11,7 +11,7 @@ module Sipd
         extend ActiveSupport::Concern
 
         included do
-          include Sip::Concerns::Controllers::UsuariosController
+          include Msip::Concerns::Controllers::UsuariosController
           include Sipd::Concerns::Controllers::SipdController
 
           def atributos_show
@@ -39,8 +39,8 @@ module Sipd
               "rol",
               "email",
             ]
-            if can?(:manage, Sip::Grupo)
-              r += ["sip_grupo"]
+            if can?(:manage, Msip::Grupo)
+              r += ["msip_grupo"]
             end
             r += [
               "idioma",
@@ -54,8 +54,8 @@ module Sipd
           end
 
           def lista_params_sipd
-            r = atributos_form - ['sip_grupo'] + 
-              [:sip_grupo_ids => []] - ['dominio'] +
+            r = atributos_form - ['msip_grupo'] + 
+              [:msip_grupo_ids => []] - ['dominio'] +
               [:dominio_ids => []] 
             return r
           end

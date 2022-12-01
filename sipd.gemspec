@@ -10,14 +10,14 @@ Gem::Specification.new do |s|
   s.authors     = ["Vladimir Tamara"]
   s.email       = ["vtamara@pasosdeJesus.org"]
   s.homepage    = ""
-  s.summary     = "Agrega dominio a sip"
-  s.description = "Agrega dominio a sip"
+  s.summary     = "Agrega dominio a msip"
+  s.description = "Agrega dominio a msip"
   s.license     = "Dominio público de acuerdo a legislación colombiana"
 
   s.files = Dir["{app,config,db,lib}/**/*", "LICENCIA.md", "Rakefile", "README.md"]
 
   s.add_dependency "rails"
-  s.add_dependency "sip"
+  s.add_dependency "msip"
 
   s.add_development_dependency "pg"
 end

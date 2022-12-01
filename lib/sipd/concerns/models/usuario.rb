@@ -1,4 +1,4 @@
-require 'sip/concerns/models/usuario'
+require 'msip/concerns/models/usuario'
 
 module Sipd
   module Concerns
@@ -7,7 +7,7 @@ module Sipd
         extend ActiveSupport::Concern
 
         included do
-          include Sip::Concerns::Models::Usuario
+          include Msip::Concerns::Models::Usuario
 
           has_and_belongs_to_many :dominio, 
             class_name: 'Sipd::Dominio',

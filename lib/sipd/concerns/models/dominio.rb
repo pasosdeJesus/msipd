@@ -5,27 +5,27 @@ module Sipd
         extend ActiveSupport::Concern
 
         included do
-          include Sip::Modelo 
-          include Sip::Localizacion
+          include Msip::Modelo 
+          include Msip::Localizacion
 
           self.table_name = 'sipd_dominio'
 
           has_and_belongs_to_many :grupo, 
-            class_name: 'Sip::Grupo', 
+            class_name: 'Msip::Grupo', 
             foreign_key: "dominio_id", 
             validate: true,
             association_foreign_key: "grupo_id",
             join_table: 'sipd_dominio_grupo'
 
           has_and_belongs_to_many :operaen_pais, 
-            class_name: 'Sip::Pais',
+            class_name: 'Msip::Pais',
             foreign_key: "dominio_id", 
             validate: true,
             association_foreign_key: "pais_id",
             join_table: 'sipd_dominio_operaen_pais'
 
           has_and_belongs_to_many :operaen_departamento, 
-            class_name: 'Sip::Departamento',
+            class_name: 'Msip::Departamento',
             foreign_key: "dominio_id", 
             validate: true, 
             association_foreign_key: "departamento_id",

@@ -1,6 +1,6 @@
 require 'sipd/concerns/models/orgsocial'
 
-module Sip
+module Msip
   class Orgsocial < ActiveRecord::Base 
 
     include Sipd::Concerns::Models::Orgsocial

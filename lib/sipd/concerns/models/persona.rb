@@ -1,4 +1,4 @@
-require 'sip/concerns/models/persona'
+require 'msip/concerns/models/persona'
 
 module Sipd
   module Concerns
@@ -7,11 +7,11 @@ module Sipd
         extend ActiveSupport::Concern
 
         included do
-          include Sip::Concerns::Models::Persona
+          include Msip::Concerns::Models::Persona
 
           # Problema en listado porque solo presentaba un dominio
           # Al detener con byebug en 3
-          # a=Sip::Orgsocial.find(3);
+          # a=Msip::Orgsocial.find(3);
           #  self.id
           #  3
           # (byebug) a==self

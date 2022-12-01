@@ -1,4 +1,4 @@
-Sip::Etiqueta.class_eval  do
+Msip::Etiqueta.class_eval  do
     def verifica_sipd
       return true
     end

@@ -1,9 +1,9 @@
 Puede ver el listado de personas que han implementado en:
 <https://github.com/pasosdeJesus/sipd/graphs/contributors>
 
-Este motor amplia el motor sip, por favor revise los créditos 
+Este motor amplia el motor msip, por favor revise los créditos 
 de ese motor en
-<https://github.com/pasosdeJesus/sip/blob/master/CREDITOS.md>
+<https://github.com/pasosdeJesus/msip/blob/master/CREDITOS.md>
 
 
 Agradecemos a Jesús/Dios por el poder que nos ha dado:

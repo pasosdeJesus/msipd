@@ -1,4 +1,4 @@
-Sip::Persona.class_eval  do
+Msip::Persona.class_eval  do
     def verifica_sipd
       return true
     end

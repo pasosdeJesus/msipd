@@ -1,10 +1,10 @@
-# Motor rails para agregar dominio a sip
+# Motor rails para agregar dominio a msip
 
 [![Revisado por Hound](https://img.shields.io/badge/Reviewed_by-Hound-8E64B0.svg)](https://houndci.com) Pruebas y seguridad: [![Estado Construcción](https://gitlab.com/pasosdeJesus/sipd/badges/main/pipeline.svg)](https://gitlab.com/pasosdeJesus/sipd/-/pipelines?page=1&scope=all&ref=main) [![Clima del Código](https://codeclimate.com/github/pasosdeJesus/sipd/badges/gpa.svg)](https://codeclimate.com/github/pasosdeJesus/sipd) [![Cobertura de Pruebas](https://codeclimate.com/github/pasosdeJesus/sipd/badges/coverage.svg)](https://codeclimate.com/github/pasosdeJesus/sipd)
 
 ![Logo de sipd](https://raw.githubusercontent.com/pasosdeJesus/sipd/master/test/dummy/app/assets/images/logo.jpg)
 
-Agrega dominio a sip
+Agrega dominio a msip
 
 ## Uso
 
@@ -27,14 +27,14 @@ $ bundle
 
 ## Rationale
 
-Hemos pensado 2 formas de agregar dominio a sip, ambas con una tabla 
+Hemos pensado 2 formas de agregar dominio a msip, ambas con una tabla 
 	sipd_dominio
 
-1. Agregando referencia dominio_id practicamente a todas las tablas de sip
+1. Agregando referencia dominio_id practicamente a todas las tablas de msip
    (excepto las tablas unión). i.e Relaciones n a 1 de cada tabla a la 
    tabla dominio.  Digamos un usuario estaría máximo a en un dominio (excepto
    si es NULL por ejemplo para superadministrador o desarrollador).
-2. Agregando una tabla unión por cada tabla de sip con sipd_dominio.
+2. Agregando una tabla unión por cada tabla de msip con sipd_dominio.
    Esto permitiría relaciones muchos a muchos. Por ejemplo un usuario podría
    estar en varios dominios.   Un actor social o persona podría asociarse a 
    varios dominios (digamos para disminuir repetición).
@@ -52,8 +52,8 @@ caso de persona y actor social tal vez personalidades públicas (no util?).
 # Opcion 1. Relación muchos a uno con tabla dominio
    Ha sido dificil de implementar a nivel de modelos y controladores
    de forma que no se requieran cambios amplios a las aplicaciones y
-   motores que usan sip.   Pues ha requerido parchar las clase
-   basicas_controller y las clases de las tablas de sip, que técnicamente
+   motores que usan msip.   Pues ha requerido parchar las clase
+   basicas_controller y las clases de las tablas de msip, que técnicamente
    no resultó trivial.
  
    A nivel de permisos y vistas parece fácil con una técnica como la de grupos
@@ -62,13 +62,13 @@ caso de persona y actor social tal vez personalidades públicas (no util?).
 
 # Opción 2. Relación muchos a muchos con tabla dominio
   Parece menos invasivo a nivel de base de datos pues no tendrían
-  que modificarse las tablas de sip (para agregar dominio_id), sólo
+  que modificarse las tablas de msip (para agregar dominio_id), sólo
   agregar tablas como sipd_dominio_usuario y así para cada tabla
-  de sip.
+  de msip.
   
   A nivel de modelos y controladores se sigue viendo la necesidad de parchar
-  los de sip para contar con las funciones auxiliares y las facilidades
-  para generar las vistas de las tablas de sip.
+  los de msip para contar con las funciones auxiliares y las facilidades
+  para generar las vistas de las tablas de msip.
 
   A nivel de permisos y vistas parece que no incrementa la complejidad que ya
   debe agregarse on la Opción 1 para tener vistas diferentes por dominio
@@ -83,4 +83,4 @@ caso de persona y actor social tal vez personalidades públicas (no util?).
 
 Empleamos la licencia ISC, puede verla en español en <https://github.com/pasosdeJesus/sipd/blob/master/LICENCIA.md>.
 
-Es practicamente equivalente a Dominio Público de acuerdo a la legislación colombiana, ver <https://github.com/pasosdeJesus/sip/wiki/Modificaciones-a-la-legislaci%C3%B3n-relacionada-con-dominio-p%C3%BAblico-en-Colombia>
+Es practicamente equivalente a Dominio Público de acuerdo a la legislación colombiana, ver <https://github.com/pasosdeJesus/msip/wiki/Modificaciones-a-la-legislaci%C3%B3n-relacionada-con-dominio-p%C3%BAblico-en-Colombia>

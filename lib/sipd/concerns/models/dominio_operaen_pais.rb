@@ -9,7 +9,7 @@ module Sipd
 
           belongs_to :dominio, class_name: 'Sipd::Dominio', 
             foreign_key: 'dominio_id', optional: false
-          belongs_to :pais, class_name: 'Sip::Pais',
+          belongs_to :pais, class_name: 'Msip::Pais',
             foreign_key: 'pais_id', optional: false
 
         end # included

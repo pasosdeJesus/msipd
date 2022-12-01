@@ -8,7 +8,7 @@ module Sipd
 
           before_action :set_dominio, only: [:show, :edit, :update, :destroy]
           load_and_authorize_resource class: Sipd::Dominio
-          Sip::Departamento.conf_presenta_nombre_con_origen = true
+          Msip::Departamento.conf_presenta_nombre_con_origen = true
 
           def clase
             "Sipd::Dominio"

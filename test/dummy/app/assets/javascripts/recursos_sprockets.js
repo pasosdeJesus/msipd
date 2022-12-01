@@ -11,5 +11,5 @@
 // about supported directives.
 //
 //= require activestorage
-//= require sip/application
+//= require msip/application
 //= require_tree .

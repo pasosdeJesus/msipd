@@ -1,7 +1,7 @@
 es:
   activerecord:
     attributes:
-      "sip/usuario":
+      "msip/usuario":
         dominio_ids: Dominios
         "{:dominio_ids=>[]}": Dominios
       "sipd/dominio":

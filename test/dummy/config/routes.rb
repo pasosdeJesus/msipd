@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  rutarel = ENV.fetch('RUTA_RELATIVA', 'sip/')
+  rutarel = ENV.fetch('RUTA_RELATIVA', 'msip/')
   scope rutarel do 
     devise_scope :usuario do
       get 'sign_out' => 'devise/sessions#destroy'
@@ -14,8 +14,8 @@ Rails.application.routes.draw do
     end
     resources :usuarios, path_names: { new: 'nuevo', edit: 'edita' }  
 
-    root 'sip/hogar#index'
+    root 'msip/hogar#index'
   end # scope
-  mount Sip::Engine, at: rutarel, as: 'sip'
+  mount Msip::Engine, at: rutarel, as: 'msip'
   mount Sipd::Engine, at: rutarel, as: 'sipd'
 end

@@ -1,6 +1,6 @@
 require 'bcrypt'
 
-require 'sip/concerns/controllers/personas_controller'
+require 'msip/concerns/controllers/personas_controller'
 require 'sipd/concerns/controllers/sipd_controller'
 
 module Sipd
@@ -11,7 +11,7 @@ module Sipd
         extend ActiveSupport::Concern
 
         included do
-          include Sip::Concerns::Controllers::PersonasController
+          include Msip::Concerns::Controllers::PersonasController
           include Sipd::Concerns::Controllers::SipdController
 
           def atributos_show

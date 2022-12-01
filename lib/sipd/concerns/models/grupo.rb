@@ -1,4 +1,4 @@
-require 'sip/concerns/models/grupo'
+require 'msip/concerns/models/grupo'
 
 module Sipd
   module Concerns
@@ -7,7 +7,7 @@ module Sipd
         extend ActiveSupport::Concern
 
         included do
-          include Sip::Concerns::Models::Grupo
+          include Msip::Concerns::Models::Grupo
 
           # Esta generando una asociación belongs_to
           has_and_belongs_to_many :dominio, 

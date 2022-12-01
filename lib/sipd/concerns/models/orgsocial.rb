@@ -1,4 +1,4 @@
-require 'sip/concerns/models/orgsocial'
+require 'msip/concerns/models/orgsocial'
 
 module Sipd
   module Concerns
@@ -7,12 +7,12 @@ module Sipd
         extend ActiveSupport::Concern
 
         included do
-          include Sip::Concerns::Models::Orgsocial
+          include Msip::Concerns::Models::Orgsocial
 
 
           # Problema en listado porque solo presentaba un dominio
           # Al detener con byebug en 3
-          # a=Sip::Orgsocial.find(3);
+          # a=Msip::Orgsocial.find(3);
           #  self.id
           #  3
           # (byebug) a==self

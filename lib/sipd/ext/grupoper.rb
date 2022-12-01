@@ -1,4 +1,4 @@
-Sip::Grupoper.class_eval  do
+Msip::Grupoper.class_eval  do
     def verifica_sipd
       return true
     end

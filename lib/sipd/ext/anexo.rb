@@ -1,4 +1,4 @@
-Sip::Anexo.class_eval  do
+Msip::Anexo.class_eval  do
     def verifica_sipd
       return true
     end

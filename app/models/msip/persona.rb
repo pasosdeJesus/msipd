@@ -1,6 +1,6 @@
 require 'sipd/concerns/models/persona'
 
-module Sip
+module Msip
   class Persona < ActiveRecord::Base 
 
     byebug

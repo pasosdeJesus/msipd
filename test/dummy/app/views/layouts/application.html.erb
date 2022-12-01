@@ -1,20 +1,20 @@
 <% #require 'navbar_helper' %>
 
 <% content_for :titulo do %>
-    <%= Sip.titulo %>
+    <%= Msip.titulo %>
 <% end %>
 
 <% content_for :menu do %>
   <% #require 'navbar_helper' %>
   <%= grupo_menus do %>
     <% if !current_usuario.nil? %>
-      <%= opcion_menu "Org. sociales", sip.orgsociales_path %>
-      <%= opcion_menu "Personas", sip.personas_path %>
+      <%= opcion_menu "Org. sociales", msip.orgsociales_path %>
+      <%= opcion_menu "Personas", msip.personas_path %>
     <% end %>
   <% end %>
   <%= grupo_menus :pull => :right do %>
     <%= opcion_menu "Documentacion", 
-      "https://github.com/pasosdeJesus/sip/wiki" %>
+      "https://github.com/pasosdeJesus/msip/wiki" %>
     <% if current_usuario %>
       <%= despliega_abajo "Administrar" do %>
         <%= opcion_menu "Clave", 
@@ -24,22 +24,22 @@
         <% end %>
         <% if can? :manage, :tablasbasicas %>
           <%= opcion_menu "Tablas Básicas", 
-            sip.tablasbasicas_path, desplegable: true %>
+            msip.tablasbasicas_path, desplegable: true %>
         <% end %>
-        <% if can? :manage, Sip::Respaldo7z %>
+        <% if can? :manage, Msip::Respaldo7z %>
           <%= opcion_menu "Copia de respaldo cifrada", 
-            sip.respaldo7z_path, desplegable: true %>
+            msip.respaldo7z_path, desplegable: true %>
         <% end %>
         <% if can? :manage, Sipd::Dominio %>
           <%= opcion_menu "Dominios", sipd.dominios_path, desplegable: true %>
         <% end %>
         <%= opcion_menu "Ayuda CA", 
-          sip.ayuda_controldeacceso_path, desplegable: true %>
+          msip.ayuda_controldeacceso_path, desplegable: true %>
       <% end %>
       <%= opcion_menu "Salir #{current_usuario.nusuario}", 
         main_app.sign_out_path %>
     <% else %>
-      <%= opcion_menu "Acerca de", sip.acercade_path %>
+      <%= opcion_menu "Acerca de", msip.acercade_path %>
       <%= opcion_menu "Iniciar Sesión", main_app.new_usuario_session_path %> 
     <% end %>
   <% end %>
@@ -48,9 +48,9 @@
 <% content_for :piedepagina do %>
   <p><span class='derechos'>Sistema de información de 
     <a href='https://github.com/pasosdeJesus/sipd'>código abierto</a> con 
-    <a href="https://github.com/pasosdeJesus/sip/blob/main/LICENCIA.md">licencia ISC</a>
+    <a href="https://github.com/pasosdeJesus/msip/blob/main/LICENCIA.md">licencia ISC</a>
     <br/>
     Desarrollado por <a id='pasosdeJesus' href="http://www.pasosdeJesus.org" target="_blank">Pasos de Jesús</a>. 2022. 
 <% end %>
 
-<%= render template: "layouts/sip/application" %>
+<%= render template: "layouts/msip/application" %>

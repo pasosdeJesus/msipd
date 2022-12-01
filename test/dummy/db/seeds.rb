@@ -5,15 +5,15 @@ conexion.execute("INSERT INTO public.sipd_dominio (id, dominio, mandato,
   'Tecnología con misión', '2018-11-27', '2018-11-27');")
 
 # De motores
-Sip::carga_semillas_sql(conexion, 'sip', :datos)
+Msip::carga_semillas_sql(conexion, 'msip', :datos)
 motor = ['sipd', '../..']
 motor.each do |m|
-    Sip::carga_semillas_sql(conexion, m, :cambios)
-    Sip::carga_semillas_sql(conexion, m, :datos)
+    Msip::carga_semillas_sql(conexion, m, :cambios)
+    Msip::carga_semillas_sql(conexion, m, :datos)
 end
 
 
-# Usuario para primer ingreso sip, sip
+# Usuario para primer ingreso msip, msip
 conexion.execute("INSERT INTO public.usuario 
 	(nusuario, email, encrypted_password, password, 
   fechacreacion, created_at, updated_at, rol) 

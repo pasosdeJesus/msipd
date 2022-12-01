@@ -1,5 +1,5 @@
 module Sipd
-	class Ability  < ::Sip::Ability
+	class Ability  < ::Msip::Ability
 
     ROLDIR = 3
     ROLSUPERADMIN = 8
@@ -38,7 +38,7 @@ module Sipd
     BASICAS_PROPIAS = []
 
     def tablasbasicas 
-      Sip::Ability::BASICAS_PROPIAS + 
+      Msip::Ability::BASICAS_PROPIAS + 
         Sipd::Ability::BASICAS_PROPIAS
     end
 
@@ -74,7 +74,7 @@ module Sipd
       #   https://github.com/ryanb/cancan/wiki/Defining-Abilities
 
       can :read, Sipd::Dominio
-      initialize_sip(usuario)
+      initialize_msip(usuario)
       # No se autorizan usuarios con fecha de deshabilitación
       if !usuario || usuario.fechadeshabilitacion
         return
@@ -82,11 +82,11 @@ module Sipd
       if usuario && usuario.rol then
         case usuario.rol 
         when Ability::ROLADMIN, Ability::ROLDESARROLLADOR, Ability::ROLSUPERADMIN
-          cannot manage, Sip::Respaldo7z
+          cannot manage, Msip::Respaldo7z
           if usuario.rol == Ability::ROLSUPERADMIN ||
               usuario.rol == Ability::ROLDESARROLLADOR
             can :manage, Sipd::Dominio
-            can :manage, Sip::Respaldo7z
+            can :manage, Msip::Respaldo7z
           end
         end
       end
