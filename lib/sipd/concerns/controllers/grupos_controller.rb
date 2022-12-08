@@ -54,7 +54,7 @@ module Sipd
 
           def lista_params_sipd
             r = atributos_form - ['msip_grupo'] + 
-              [:msip_grupo_ids => []] - ['dominio'] +
+              [:grupo_ids => []] - ['dominio'] +
               [:dominio_ids => []] 
             return r
           end
