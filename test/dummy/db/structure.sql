@@ -1946,6 +1946,14 @@ ALTER TABLE ONLY public.msip_clase_histvigencia
 
 
 --
+-- Name: msip_clase msip_clase_id_municipio_id_clalocal_key; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.msip_clase
+    ADD CONSTRAINT msip_clase_id_municipio_id_clalocal_key UNIQUE (id_municipio, id_clalocal);
+
+
+--
 -- Name: msip_clase msip_clase_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -1959,6 +1967,14 @@ ALTER TABLE ONLY public.msip_clase
 
 ALTER TABLE ONLY public.msip_departamento_histvigencia
     ADD CONSTRAINT msip_departamento_histvigencia_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: msip_departamento msip_departamento_id_pais_id_deplocal_unico; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.msip_departamento
+    ADD CONSTRAINT msip_departamento_id_pais_id_deplocal_unico UNIQUE (id_pais, id_deplocal);
 
 
 --
@@ -2018,6 +2034,14 @@ ALTER TABLE ONLY public.msip_municipio_histvigencia
 
 
 --
+-- Name: msip_municipio msip_municipio_id_departamento_id_munlocal_unico; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.msip_municipio
+    ADD CONSTRAINT msip_municipio_id_departamento_id_munlocal_unico UNIQUE (id_departamento, id_munlocal);
+
+
+--
 -- Name: msip_municipio msip_municipio_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -2047,6 +2071,14 @@ ALTER TABLE ONLY public.msip_orgsocial_persona
 
 ALTER TABLE ONLY public.msip_orgsocial
     ADD CONSTRAINT msip_orgsocial_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: msip_pais msip_pais_codiso_unico; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.msip_pais
+    ADD CONSTRAINT msip_pais_codiso_unico UNIQUE (codiso);
 
 
 --
@@ -2175,38 +2207,6 @@ ALTER TABLE ONLY public.msip_vereda
 
 ALTER TABLE ONLY public.schema_migrations
     ADD CONSTRAINT schema_migrations_pkey PRIMARY KEY (version);
-
-
---
--- Name: msip_clase sip_clase_id_municipio_id_clalocal_key; Type: CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.msip_clase
-    ADD CONSTRAINT sip_clase_id_municipio_id_clalocal_key UNIQUE (id_municipio, id_clalocal);
-
-
---
--- Name: msip_departamento sip_departamento_id_pais_id_deplocal_unico; Type: CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.msip_departamento
-    ADD CONSTRAINT sip_departamento_id_pais_id_deplocal_unico UNIQUE (id_pais, id_deplocal);
-
-
---
--- Name: msip_municipio sip_municipio_id_departamento_id_munlocal_unico; Type: CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.msip_municipio
-    ADD CONSTRAINT sip_municipio_id_departamento_id_munlocal_unico UNIQUE (id_departamento, id_munlocal);
-
-
---
--- Name: msip_pais sip_pais_codiso_unico; Type: CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.msip_pais
-    ADD CONSTRAINT sip_pais_codiso_unico UNIQUE (codiso);
 
 
 --
@@ -2736,6 +2736,14 @@ ALTER TABLE ONLY public.msip_solicitud
 
 
 --
+-- Name: msip_municipio msip_municipio_id_departamento_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.msip_municipio
+    ADD CONSTRAINT msip_municipio_id_departamento_fkey FOREIGN KEY (id_departamento) REFERENCES public.msip_departamento(id);
+
+
+--
 -- Name: msip_persona persona_id_clase_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -2797,14 +2805,6 @@ ALTER TABLE ONLY public.msip_persona_trelacion
 
 ALTER TABLE ONLY public.msip_persona_trelacion
     ADD CONSTRAINT persona_trelacion_persona2_fkey FOREIGN KEY (persona2) REFERENCES public.msip_persona(id);
-
-
---
--- Name: msip_municipio sip_municipio_id_departamento_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.msip_municipio
-    ADD CONSTRAINT sip_municipio_id_departamento_fkey FOREIGN KEY (id_departamento) REFERENCES public.msip_departamento(id);
 
 
 --
@@ -2965,6 +2965,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20221102144613'),
 ('20221102145906'),
 ('20221118032223'),
-('20221201133152');
+('20221201133152'),
+('20221201143440');
 
 
