@@ -356,7 +356,12 @@ CREATE TABLE public.msip_clase (
     updated_at timestamp without time zone,
     observaciones character varying(5000) COLLATE public.es_co_utf_8,
     ultvigenciaini date,
-    ultvigenciafin date
+    ultvigenciafin date,
+    svgruta character varying,
+    svgcdx integer,
+    svgcdy integer,
+    svgcdancho integer,
+    svgcdalto integer
 );
 
 
@@ -435,7 +440,12 @@ CREATE TABLE public.msip_departamento (
     catiso character varying(64),
     codreg integer,
     ultvigenciaini date,
-    ultvigenciafin date
+    ultvigenciafin date,
+    svgruta character varying,
+    svgcdx integer,
+    svgcdy integer,
+    svgcdancho integer,
+    svgcdalto integer
 );
 
 
@@ -515,7 +525,12 @@ CREATE TABLE public.msip_municipio (
     codreg integer,
     ultvigenciaini date,
     ultvigenciafin date,
-    tipomun character varying(32)
+    tipomun character varying(32),
+    svgruta character varying,
+    svgcdx integer,
+    svgcdy integer,
+    svgcdancho integer,
+    svgcdalto integer
 );
 
 
@@ -929,7 +944,12 @@ CREATE TABLE public.msip_pais (
     nombreiso_ingles character varying(512),
     nombreiso_frances character varying(512),
     ultvigenciaini date,
-    ultvigenciafin date
+    ultvigenciafin date,
+    svgruta character varying,
+    svgcdx integer,
+    svgcdy integer,
+    svgcdancho integer,
+    svgcdalto integer
 );
 
 
@@ -2968,6 +2988,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20221201133152'),
 ('20221201143440'),
 ('20221201154025'),
-('20221208173349');
+('20221208173349'),
+('20221210155527');
 
 
