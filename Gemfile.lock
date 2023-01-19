@@ -330,6 +330,7 @@ DEPENDENCIES
   kt-paperclip!
   minitest
   msip!
+  msipd!
   nokogiri (>= 1.11.1)
   pg
   puma
@@ -338,7 +339,6 @@ DEPENDENCIES
   sassc-rails
   simple_form
   simplecov (~> 0.10, < 0.18)
-  msipd!
   sprockets-rails
   stimulus-rails
   turbo-rails (~> 1.0)
