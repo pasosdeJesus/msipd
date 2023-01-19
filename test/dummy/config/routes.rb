@@ -17,5 +17,5 @@ Rails.application.routes.draw do
     root 'msip/hogar#index'
   end # scope
   mount Msip::Engine, at: rutarel, as: 'msip'
-  mount Sipd::Engine, at: rutarel, as: 'sipd'
+  mount Msipd::Engine, at: rutarel, as: 'msipd'
 end

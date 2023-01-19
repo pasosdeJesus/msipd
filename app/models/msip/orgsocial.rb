@@ -1,9 +1,9 @@
-require 'sipd/concerns/models/orgsocial'
+require 'msipd/concerns/models/orgsocial'
 
 module Msip
   class Orgsocial < ActiveRecord::Base 
 
-    include Sipd::Concerns::Models::Orgsocial
+    include Msipd::Concerns::Models::Orgsocial
 
   end
 end

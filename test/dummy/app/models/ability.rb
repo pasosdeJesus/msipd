@@ -1,4 +1,4 @@
-class Ability  < Sipd::Ability
+class Ability  < Msipd::Ability
 
 
   # Se definen habilidades con cancancan
@@ -22,7 +22,7 @@ class Ability  < Sipd::Ability
 
     # Sin autenticación puede consultarse información geográfica y dominios
     can :read, [Msip::Pais, Msip::Departamento, Msip::Municipio, Msip::Clase]
-    can :read, Sipd::Dominio
+    can :read, Msipd::Dominio
     # No se autorizan usuarios con fecha de deshabilitación
     if !usuario || usuario.fechadeshabilitacion
       return
@@ -52,7 +52,7 @@ class Ability  < Sipd::Ability
         end
         if usuario.rol == Ability::ROLSUPERADMIN ||
           usuario.rol == Ability::ROLDESARROLLADOR
-          can :manage, Sipd::Dominio
+          can :manage, Msipd::Dominio
           can :manage, Msip::Respaldo7z
         end
       end

@@ -30,8 +30,8 @@
           <%= opcion_menu "Copia de respaldo cifrada", 
             msip.respaldo7z_path, desplegable: true %>
         <% end %>
-        <% if can? :manage, Sipd::Dominio %>
-          <%= opcion_menu "Dominios", sipd.dominios_path, desplegable: true %>
+        <% if can? :manage, Msipd::Dominio %>
+          <%= opcion_menu "Dominios", msipd.dominios_path, desplegable: true %>
         <% end %>
         <%= opcion_menu "Ayuda CA", 
           msip.ayuda_controldeacceso_path, desplegable: true %>
@@ -47,7 +47,7 @@
 
 <% content_for :piedepagina do %>
   <p><span class='derechos'>Sistema de información de 
-    <a href='https://github.com/pasosdeJesus/sipd'>código abierto</a> con 
+    <a href='https://github.com/pasosdeJesus/msipd'>código abierto</a> con 
     <a href="https://github.com/pasosdeJesus/msip/blob/main/LICENCIA.md">licencia ISC</a>
     <br/>
     Desarrollado por <a id='pasosdeJesus' href="http://www.pasosdeJesus.org" target="_blank">Pasos de Jesús</a>. 2022. 

@@ -1,12 +1,12 @@
 <%
-  col1 = Sipd::Dominio.where(id: current_ability.dominio_ids(current_usuario))
+  col1 = Msipd::Dominio.where(id: current_ability.dominio_ids(current_usuario))
   ids1 = col1.pluck(:id)
   ids2 = []
   if f.object.respond_to?('dominio') && 
     f.object.send('dominio').respond_to?(:pluck)
     ids2 = f.object.send('dominio').pluck(:id)
   end
-  col = Sipd::Dominio.where(id: ids1 | ids2)
+  col = Msipd::Dominio.where(id: ids1 | ids2)
 %>
 
 <%= f.association :dominio,

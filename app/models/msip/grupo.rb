@@ -1,9 +1,9 @@
-require 'sipd/concerns/models/grupo'
+require 'msipd/concerns/models/grupo'
 
 module Msip
   class Grupo < ActiveRecord::Base 
 
-    include Sipd::Concerns::Models::Grupo
+    include Msipd::Concerns::Models::Grupo
 
   end
 end

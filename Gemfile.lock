@@ -39,7 +39,7 @@ GIT
 PATH
   remote: .
   specs:
-    sipd (2.1.0.beta1)
+    msipd (2.1.0.beta1)
       msip
       rails
 
@@ -338,7 +338,7 @@ DEPENDENCIES
   sassc-rails
   simple_form
   simplecov (~> 0.10, < 0.18)
-  sipd!
+  msipd!
   sprockets-rails
   stimulus-rails
   turbo-rails (~> 1.0)

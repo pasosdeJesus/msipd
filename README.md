@@ -1,8 +1,8 @@
 # Motor rails para agregar dominio a msip
 
-[![Revisado por Hound](https://img.shields.io/badge/Reviewed_by-Hound-8E64B0.svg)](https://houndci.com) Pruebas y seguridad: [![Estado Construcción](https://gitlab.com/pasosdeJesus/sipd/badges/main/pipeline.svg)](https://gitlab.com/pasosdeJesus/sipd/-/pipelines?page=1&scope=all&ref=main) [![Clima del Código](https://codeclimate.com/github/pasosdeJesus/sipd/badges/gpa.svg)](https://codeclimate.com/github/pasosdeJesus/sipd) [![Cobertura de Pruebas](https://codeclimate.com/github/pasosdeJesus/sipd/badges/coverage.svg)](https://codeclimate.com/github/pasosdeJesus/sipd)
+[![Revisado por Hound](https://img.shields.io/badge/Reviewed_by-Hound-8E64B0.svg)](https://houndci.com) Pruebas y seguridad: [![Estado Construcción](https://gitlab.com/pasosdeJesus/msipd/badges/main/pipeline.svg)](https://gitlab.com/pasosdeJesus/msipd/-/pipelines?page=1&scope=all&ref=main) [![Clima del Código](https://codeclimate.com/github/pasosdeJesus/msipd/badges/gpa.svg)](https://codeclimate.com/github/pasosdeJesus/msipd) [![Cobertura de Pruebas](https://codeclimate.com/github/pasosdeJesus/msipd/badges/coverage.svg)](https://codeclimate.com/github/pasosdeJesus/msipd)
 
-![Logo de sipd](https://raw.githubusercontent.com/pasosdeJesus/sipd/master/test/dummy/app/assets/images/logo.jpg)
+![Logo de msipd](https://raw.githubusercontent.com/pasosdeJesus/msipd/master/test/dummy/app/assets/images/logo.jpg)
 
 Agrega dominio a msip
 
@@ -17,7 +17,7 @@ Y sólo están disponibles cuando se ingresan por un dominio las de ese dominio.
 Agregue esta líne al Gemfile de su aplicación/motor:
 
 ```ruby
-gem 'sipd'
+gem 'msipd'
 ```
 
 Y ejecute:
@@ -28,13 +28,13 @@ $ bundle
 ## Rationale
 
 Hemos pensado 2 formas de agregar dominio a msip, ambas con una tabla 
-	sipd_dominio
+	msipd_dominio
 
 1. Agregando referencia dominio_id practicamente a todas las tablas de msip
    (excepto las tablas unión). i.e Relaciones n a 1 de cada tabla a la 
    tabla dominio.  Digamos un usuario estaría máximo a en un dominio (excepto
    si es NULL por ejemplo para superadministrador o desarrollador).
-2. Agregando una tabla unión por cada tabla de msip con sipd_dominio.
+2. Agregando una tabla unión por cada tabla de msip con msipd_dominio.
    Esto permitiría relaciones muchos a muchos. Por ejemplo un usuario podría
    estar en varios dominios.   Un actor social o persona podría asociarse a 
    varios dominios (digamos para disminuir repetición).
@@ -63,7 +63,7 @@ caso de persona y actor social tal vez personalidades públicas (no util?).
 # Opción 2. Relación muchos a muchos con tabla dominio
   Parece menos invasivo a nivel de base de datos pues no tendrían
   que modificarse las tablas de msip (para agregar dominio_id), sólo
-  agregar tablas como sipd_dominio_usuario y así para cada tabla
+  agregar tablas como msipd_dominio_usuario y así para cada tabla
   de msip.
   
   A nivel de modelos y controladores se sigue viendo la necesidad de parchar
@@ -81,6 +81,6 @@ caso de persona y actor social tal vez personalidades públicas (no util?).
 
 ## Licencia
 
-Empleamos la licencia ISC, puede verla en español en <https://github.com/pasosdeJesus/sipd/blob/master/LICENCIA.md>.
+Empleamos la licencia ISC, puede verla en español en <https://github.com/pasosdeJesus/msipd/blob/master/LICENCIA.md>.
 
 Es practicamente equivalente a Dominio Público de acuerdo a la legislación colombiana, ver <https://github.com/pasosdeJesus/msip/wiki/Modificaciones-a-la-legislaci%C3%B3n-relacionada-con-dominio-p%C3%BAblico-en-Colombia>

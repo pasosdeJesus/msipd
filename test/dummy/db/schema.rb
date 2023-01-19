@@ -112,7 +112,7 @@ ActiveRecord::Schema.define(version: 2018_10_11_104537) do
 
   create_table "msip_grupo_usuario", id: false, force: :cascade do |t|
     t.integer "usuario_id", null: false
-    t.integer "msip_grupo_id", null: false
+    t.integer "mgrupo_id", null: false
   end
 
   create_table "msip_grupoper", comment: "Creado por msip en sipdes_des", force: :cascade do |t|

@@ -1,10 +1,10 @@
-require 'sipd/concerns/models/persona'
+require 'msipd/concerns/models/persona'
 
 module Msip
   class Persona < ActiveRecord::Base 
 
     byebug
-    include Sipd::Concerns::Models::Persona
+    include Msipd::Concerns::Models::Persona
 
   end
 end

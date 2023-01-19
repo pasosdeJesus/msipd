@@ -1,8 +1,8 @@
-require 'sipd/concerns/controllers/orgsociales_controller'
+require 'msipd/concerns/controllers/orgsociales_controller'
 module Msip
   class OrgsocialesController < Msip::ModelosController
 
-    include Sipd::Concerns::Controllers::OrgsocialesController
+    include Msipd::Concerns::Controllers::OrgsocialesController
     #load_and_authorize_resource class: Msip::Grupo
     # No autorizamos aquí porque la autorización es más
     # detallada en las funcines de modelos_controller

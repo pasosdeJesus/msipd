@@ -1,6 +1,6 @@
 <%
   col1 = ::Usuario.habilitados.joins(:dominio).
-    where('sipd_dominio.id' => current_ability.dominio_ids(current_usuario))
+    where('msipd_dominio.id' => current_ability.dominio_ids(current_usuario))
   ids1 = col1.pluck(:id)
   ids2 = []
   if f.object.respond_to?('usuario') && 

@@ -1,5 +1,5 @@
-require 'sipd/concerns/models/usuario'
+require 'msipd/concerns/models/usuario'
 
 class Usuario < ActiveRecord::Base
-  include Sipd::Concerns::Models::Usuario
+  include Msipd::Concerns::Models::Usuario
 end

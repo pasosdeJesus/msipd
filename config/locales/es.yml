@@ -4,7 +4,7 @@ es:
       "msip/usuario":
         dominio_ids: Dominios
         "{:dominio_ids=>[]}": Dominios
-      "sipd/dominio":
+      "msipd/dominio":
         operaen_departamento: Departamentos/Estados donde opera
         "{:operaen_departamento_ids=>[]}": Departamentos/Estados donde opera
         operaen_pais: Paises completos donde opera

@@ -1,5 +1,5 @@
-require 'sipd/concerns/controllers/usuarios_controller'
+require 'msipd/concerns/controllers/usuarios_controller'
 
 class UsuariosController < Msip::ModelosController
-    include Sipd::Concerns::Controllers::UsuariosController
+    include Msipd::Concerns::Controllers::UsuariosController
 end

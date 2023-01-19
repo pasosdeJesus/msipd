@@ -1,5 +1,5 @@
 Puede ver el listado de personas que han implementado en:
-<https://github.com/pasosdeJesus/sipd/graphs/contributors>
+<https://github.com/pasosdeJesus/msipd/graphs/contributors>
 
 Este motor amplia el motor msip, por favor revise los créditos 
 de ese motor en

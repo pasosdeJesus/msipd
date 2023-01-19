@@ -1,12 +1,12 @@
 $:.push File.expand_path("lib", __dir__)
 
 # Maintain your gem's version:
-require "sipd/version"
+require "msipd/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name        = "sipd"
-  s.version     = Sipd::VERSION
+  s.name        = "msipd"
+  s.version     = Msipd::VERSION
   s.authors     = ["Vladimir Tamara"]
   s.email       = ["vtamara@pasosdeJesus.org"]
   s.homepage    = ""

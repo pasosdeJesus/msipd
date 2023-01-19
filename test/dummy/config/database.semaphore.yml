@@ -7,12 +7,12 @@ default: &default
 
 development:
   <<: *default
-  database: sipd_des
+  database: msipd_des
 
 test:
   <<: *default
-  database: sipd_pru
+  database: msipd_pru
 
 production:
   <<: *default
-  database: sipd
+  database: msipd
