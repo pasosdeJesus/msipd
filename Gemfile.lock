@@ -18,7 +18,7 @@ GIT
 
 GIT
   remote: https://gitlab.com/pasosdeJesus/msip.git
-  revision: 17bbcc87b62256682de18a9e6ef177e76c00ca7d
+  revision: 1adfbc7486f7838d7c4e6f44493cd8462dd1c2d1
   branch: main
   specs:
     msip (2.2.0.beta1)
@@ -180,7 +180,6 @@ GEM
       reline (>= 0.3.0)
     jsbundling-rails (1.1.1)
       railties (>= 6.0.0)
-    json (2.6.3)
     loofah (2.19.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -267,11 +266,12 @@ GEM
     simple_form (5.2.0)
       actionpack (>= 5.2)
       activemodel (>= 5.2)
-    simplecov (0.17.1)
+    simplecov (0.22.0)
       docile (~> 1.1)
-      json (>= 1.8, < 3)
-      simplecov-html (~> 0.10.0)
-    simplecov-html (0.10.2)
+      simplecov-html (~> 0.11)
+      simplecov_json_formatter (~> 0.1)
+    simplecov-html (0.12.3)
+    simplecov_json_formatter (0.1.4)
     sprockets (4.2.0)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -338,7 +338,7 @@ DEPENDENCIES
   rails-i18n
   sassc-rails
   simple_form
-  simplecov (~> 0.10, < 0.18)
+  simplecov
   sprockets-rails
   stimulus-rails
   turbo-rails (~> 1.0)
