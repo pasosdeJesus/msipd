@@ -361,7 +361,9 @@ CREATE TABLE public.msip_clase (
     svgcdx integer,
     svgcdy integer,
     svgcdancho integer,
-    svgcdalto integer
+    svgcdalto integer,
+    svgrotx double precision,
+    svgroty double precision
 );
 
 
@@ -445,7 +447,9 @@ CREATE TABLE public.msip_departamento (
     svgcdx integer,
     svgcdy integer,
     svgcdancho integer,
-    svgcdalto integer
+    svgcdalto integer,
+    svgrotx double precision,
+    svgroty double precision
 );
 
 
@@ -530,7 +534,9 @@ CREATE TABLE public.msip_municipio (
     svgcdx integer,
     svgcdy integer,
     svgcdancho integer,
-    svgcdalto integer
+    svgcdalto integer,
+    svgrotx double precision,
+    svgroty double precision
 );
 
 
@@ -949,7 +955,9 @@ CREATE TABLE public.msip_pais (
     svgcdx integer,
     svgcdy integer,
     svgcdancho integer,
-    svgcdalto integer
+    svgcdalto integer,
+    svgrotx double precision,
+    svgroty double precision
 );
 
 
@@ -2994,6 +3002,8 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20221211141208'),
 ('20221211141209'),
 ('20221212021533'),
-('20230119111240');
+('20230119111240'),
+('20230301145222'),
+('20230301212546');
 
 
