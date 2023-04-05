@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(version: 2018_10_11_104537) do
     t.datetime "updated_at"
     t.string "observaciones", limit: 5000, collation: "es_co_utf_8"
     t.index ["id"], name: "msip_departamento_id_key", unique: true
-    t.index ["pais_id", "deplocal_cod"], name: "msip_departamento_pais_id_deplocal_cod_key", unique: true
+    t.index ["pais_id", "deplocal_cod"], name: "msip_departamento_pais_deplocal_cod_cod_key", unique: true
   end
 
   create_table "msip_etiqueta", id: :serial, force: :cascade do |t|

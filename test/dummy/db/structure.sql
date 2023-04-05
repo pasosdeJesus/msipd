@@ -345,9 +345,9 @@ ALTER SEQUENCE public.msip_bitacora_id_seq OWNED BY public.msip_bitacora.id;
 CREATE TABLE public.msip_clase (
     id integer NOT NULL,
     nombre character varying(500) NOT NULL COLLATE public.es_co_utf_8,
-    id_municipio integer NOT NULL,
-    id_clalocal integer,
-    id_tclase character varying(10) DEFAULT 'CP'::character varying NOT NULL,
+    municipio_id integer NOT NULL,
+    clalocal_cod integer,
+    tclase_id character varying(10) DEFAULT 'CP'::character varying NOT NULL,
     latitud double precision,
     longitud double precision,
     fechacreacion date NOT NULL,
@@ -377,8 +377,8 @@ CREATE TABLE public.msip_clase_histvigencia (
     vigenciaini date,
     vigenciafin date NOT NULL,
     nombre character varying(256),
-    id_clalocal integer,
-    id_tclase character varying,
+    clalocal_cod integer,
+    tclase_id character varying,
     observaciones character varying(5000)
 );
 
@@ -429,8 +429,8 @@ ALTER SEQUENCE public.msip_clase_id_seq OWNED BY public.msip_clase.id;
 CREATE TABLE public.msip_departamento (
     id integer NOT NULL,
     nombre character varying(500) NOT NULL COLLATE public.es_co_utf_8,
-    id_pais integer NOT NULL,
-    id_deplocal integer,
+    pais_id integer NOT NULL,
+    deplocal_cod integer,
     latitud double precision,
     longitud double precision,
     fechacreacion date DEFAULT ('now'::text)::date NOT NULL,
@@ -463,7 +463,7 @@ CREATE TABLE public.msip_departamento_histvigencia (
     vigenciaini date,
     vigenciafin date NOT NULL,
     nombre character varying(256),
-    id_deplocal integer,
+    deplocal_cod integer,
     codiso integer,
     catiso integer,
     codreg integer,
@@ -517,8 +517,8 @@ ALTER SEQUENCE public.msip_departamento_id_seq OWNED BY public.msip_departamento
 CREATE TABLE public.msip_municipio (
     id integer NOT NULL,
     nombre character varying(500) NOT NULL COLLATE public.es_co_utf_8,
-    id_departamento integer NOT NULL,
-    id_munlocal integer,
+    departamento_id integer NOT NULL,
+    munlocal_cod integer,
     latitud double precision,
     longitud double precision,
     fechacreacion date DEFAULT ('now'::text)::date NOT NULL,
@@ -545,18 +545,18 @@ CREATE TABLE public.msip_municipio (
 --
 
 CREATE VIEW public.msip_divipola AS
- SELECT msip_departamento.id_deplocal AS coddep,
+ SELECT msip_departamento.deplocal_cod AS coddep,
     msip_departamento.nombre AS departamento,
-    ((msip_departamento.id_deplocal * 1000) + msip_municipio.id_munlocal) AS codmun,
+    ((msip_departamento.deplocal_cod * 1000) + msip_municipio.munlocal_cod) AS codmun,
     msip_municipio.nombre AS municipio,
-    (((msip_departamento.id_deplocal * 1000000) + (msip_municipio.id_munlocal * 1000)) + msip_clase.id_clalocal) AS codcp,
+    (((msip_departamento.deplocal_cod * 1000000) + (msip_municipio.munlocal_cod * 1000)) + msip_clase.clalocal_cod) AS codcp,
     msip_clase.nombre AS centropoblado,
-    msip_clase.id_tclase AS tipocp,
+    msip_clase.tclase_id AS tipocp,
     msip_clase.id AS sip_idcp
    FROM ((public.msip_departamento
-     JOIN public.msip_municipio ON ((msip_municipio.id_departamento = msip_departamento.id)))
-     JOIN public.msip_clase ON ((msip_clase.id_municipio = msip_municipio.id)))
-  WHERE ((msip_departamento.id_pais = 170) AND (msip_clase.fechadeshabilitacion IS NULL))
+     JOIN public.msip_municipio ON ((msip_municipio.departamento_id = msip_departamento.id)))
+     JOIN public.msip_clase ON ((msip_clase.municipio_id = msip_municipio.id)))
+  WHERE ((msip_departamento.pais_id = 170) AND (msip_clase.fechadeshabilitacion IS NULL))
   ORDER BY msip_departamento.nombre, msip_municipio.nombre, msip_clase.nombre;
 
 
@@ -762,7 +762,7 @@ CREATE TABLE public.msip_municipio_histvigencia (
     vigenciaini date,
     vigenciafin date NOT NULL,
     nombre character varying(256),
-    id_munlocal integer,
+    munlocal_cod integer,
     observaciones character varying(5000),
     codreg integer
 );
@@ -1063,13 +1063,13 @@ CREATE TABLE public.msip_persona (
     mesnac integer,
     dianac integer,
     sexo character varying(1) NOT NULL,
-    id_departamento integer,
-    id_municipio integer,
-    id_clase integer,
+    departamento_id integer,
+    municipio_id integer,
+    clase_id integer,
     numerodocumento character varying(100),
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
-    id_pais integer,
+    pais_id integer,
     nacionalde integer,
     tdocumento_id integer
 );
@@ -1103,7 +1103,7 @@ CREATE TABLE public.msip_persona_trelacion (
     id integer NOT NULL,
     persona1 integer NOT NULL,
     persona2 integer NOT NULL,
-    id_trelacion character varying(2) DEFAULT 'SI'::character varying NOT NULL,
+    trelacion_id character varying(2) DEFAULT 'SI'::character varying NOT NULL,
     observaciones character varying(5000) COLLATE public.es_co_utf_8,
     created_at timestamp without time zone,
     updated_at timestamp without time zone
@@ -1444,15 +1444,15 @@ CREATE TABLE public.msip_ubicacion (
     id integer NOT NULL,
     lugar character varying(500) COLLATE public.es_co_utf_8,
     sitio character varying(500) COLLATE public.es_co_utf_8,
-    id_clase integer,
-    id_municipio integer,
-    id_departamento integer,
-    id_tsitio integer DEFAULT 1 NOT NULL,
+    clase_id integer,
+    municipio_id integer,
+    departamento_id integer,
+    tsitio_id integer DEFAULT 1 NOT NULL,
     latitud double precision,
     longitud double precision,
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
-    id_pais integer
+    pais_id integer
 );
 
 
@@ -1978,7 +1978,7 @@ ALTER TABLE ONLY public.msip_clase_histvigencia
 --
 
 ALTER TABLE ONLY public.msip_clase
-    ADD CONSTRAINT msip_clase_id_municipio_id_clalocal_key UNIQUE (id_municipio, id_clalocal);
+    ADD CONSTRAINT msip_clase_id_municipio_id_clalocal_key UNIQUE (municipio_id, clalocal_cod);
 
 
 --
@@ -2002,7 +2002,7 @@ ALTER TABLE ONLY public.msip_departamento_histvigencia
 --
 
 ALTER TABLE ONLY public.msip_departamento
-    ADD CONSTRAINT msip_departamento_id_pais_id_deplocal_unico UNIQUE (id_pais, id_deplocal);
+    ADD CONSTRAINT msip_departamento_id_pais_id_deplocal_unico UNIQUE (pais_id, deplocal_cod);
 
 
 --
@@ -2066,7 +2066,7 @@ ALTER TABLE ONLY public.msip_municipio_histvigencia
 --
 
 ALTER TABLE ONLY public.msip_municipio
-    ADD CONSTRAINT msip_municipio_id_departamento_id_munlocal_unico UNIQUE (id_departamento, id_munlocal);
+    ADD CONSTRAINT msip_municipio_id_departamento_id_munlocal_unico UNIQUE (departamento_id, munlocal_cod);
 
 
 --
@@ -2298,31 +2298,31 @@ CREATE INDEX index_msip_solicitud_usuarionotificar_on_usuarionotificar_id ON pub
 
 
 --
--- Name: index_msip_ubicacion_on_id_clase; Type: INDEX; Schema: public; Owner: -
+-- Name: index_msip_ubicacion_on_clase_id; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_msip_ubicacion_on_id_clase ON public.msip_ubicacion USING btree (id_clase);
-
-
---
--- Name: index_msip_ubicacion_on_id_departamento; Type: INDEX; Schema: public; Owner: -
---
-
-CREATE INDEX index_msip_ubicacion_on_id_departamento ON public.msip_ubicacion USING btree (id_departamento);
+CREATE INDEX index_msip_ubicacion_on_clase_id ON public.msip_ubicacion USING btree (clase_id);
 
 
 --
--- Name: index_msip_ubicacion_on_id_municipio; Type: INDEX; Schema: public; Owner: -
+-- Name: index_msip_ubicacion_on_departamento_id; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_msip_ubicacion_on_id_municipio ON public.msip_ubicacion USING btree (id_municipio);
+CREATE INDEX index_msip_ubicacion_on_departamento_id ON public.msip_ubicacion USING btree (departamento_id);
 
 
 --
--- Name: index_msip_ubicacion_on_id_pais; Type: INDEX; Schema: public; Owner: -
+-- Name: index_msip_ubicacion_on_municipio_id; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_msip_ubicacion_on_id_pais ON public.msip_ubicacion USING btree (id_pais);
+CREATE INDEX index_msip_ubicacion_on_municipio_id ON public.msip_ubicacion USING btree (municipio_id);
+
+
+--
+-- Name: index_msip_ubicacion_on_pais_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_msip_ubicacion_on_pais_id ON public.msip_ubicacion USING btree (pais_id);
 
 
 --
@@ -2364,7 +2364,7 @@ CREATE UNIQUE INDEX sip_departamento_id_key ON public.msip_departamento USING bt
 -- Name: sip_departamento_id_pais_id_deplocal_key; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE UNIQUE INDEX sip_departamento_id_pais_id_deplocal_key ON public.msip_departamento USING btree (id_pais, id_deplocal);
+CREATE UNIQUE INDEX sip_departamento_id_pais_id_deplocal_key ON public.msip_departamento USING btree (pais_id, deplocal_cod);
 
 
 --
@@ -2378,14 +2378,14 @@ CREATE UNIQUE INDEX sip_persona_trelacion_id_key ON public.msip_persona_trelacio
 -- Name: sip_persona_trelacion_persona1_persona2_id_trelacion_key; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE UNIQUE INDEX sip_persona_trelacion_persona1_persona2_id_trelacion_key ON public.msip_persona_trelacion USING btree (persona1, persona2, id_trelacion);
+CREATE UNIQUE INDEX sip_persona_trelacion_persona1_persona2_id_trelacion_key ON public.msip_persona_trelacion USING btree (persona1, persona2, trelacion_id);
 
 
 --
 -- Name: sip_persona_trelacion_persona1_persona2_id_trelacion_key1; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE UNIQUE INDEX sip_persona_trelacion_persona1_persona2_id_trelacion_key1 ON public.msip_persona_trelacion USING btree (persona1, persona2, id_trelacion);
+CREATE UNIQUE INDEX sip_persona_trelacion_persona1_persona2_id_trelacion_key1 ON public.msip_persona_trelacion USING btree (persona1, persona2, trelacion_id);
 
 
 --
@@ -2400,7 +2400,7 @@ CREATE UNIQUE INDEX unique_schema_migrations ON public.schema_migrations USING b
 --
 
 ALTER TABLE ONLY public.msip_clase
-    ADD CONSTRAINT clase_id_municipio_fkey FOREIGN KEY (id_municipio) REFERENCES public.msip_municipio(id);
+    ADD CONSTRAINT clase_id_municipio_fkey FOREIGN KEY (municipio_id) REFERENCES public.msip_municipio(id);
 
 
 --
@@ -2408,7 +2408,7 @@ ALTER TABLE ONLY public.msip_clase
 --
 
 ALTER TABLE ONLY public.msip_clase
-    ADD CONSTRAINT clase_id_tclase_fkey FOREIGN KEY (id_tclase) REFERENCES public.msip_tclase(id);
+    ADD CONSTRAINT clase_id_tclase_fkey FOREIGN KEY (tclase_id) REFERENCES public.msip_tclase(id);
 
 
 --
@@ -2416,7 +2416,7 @@ ALTER TABLE ONLY public.msip_clase
 --
 
 ALTER TABLE ONLY public.msip_departamento
-    ADD CONSTRAINT departamento_id_pais_fkey FOREIGN KEY (id_pais) REFERENCES public.msip_pais(id);
+    ADD CONSTRAINT departamento_id_pais_fkey FOREIGN KEY (pais_id) REFERENCES public.msip_pais(id);
 
 
 --
@@ -2432,7 +2432,7 @@ ALTER TABLE ONLY public.msip_oficina
 --
 
 ALTER TABLE ONLY public.msip_municipio
-    ADD CONSTRAINT fk_rails_089870a38d FOREIGN KEY (id_departamento) REFERENCES public.msip_departamento(id);
+    ADD CONSTRAINT fk_rails_089870a38d FOREIGN KEY (departamento_id) REFERENCES public.msip_departamento(id);
 
 
 --
@@ -2616,7 +2616,7 @@ ALTER TABLE ONLY public.msip_fuenteprensa
 --
 
 ALTER TABLE ONLY public.msip_departamento
-    ADD CONSTRAINT fk_rails_92093de1a1 FOREIGN KEY (id_pais) REFERENCES public.msip_pais(id);
+    ADD CONSTRAINT fk_rails_92093de1a1 FOREIGN KEY (pais_id) REFERENCES public.msip_pais(id);
 
 
 --
@@ -2744,7 +2744,7 @@ ALTER TABLE ONLY public.msip_sectororgsocial
 --
 
 ALTER TABLE ONLY public.msip_clase
-    ADD CONSTRAINT fk_rails_fb09f016e4 FOREIGN KEY (id_municipio) REFERENCES public.msip_municipio(id);
+    ADD CONSTRAINT fk_rails_fb09f016e4 FOREIGN KEY (municipio_id) REFERENCES public.msip_municipio(id);
 
 
 --
@@ -2768,7 +2768,7 @@ ALTER TABLE ONLY public.msip_solicitud
 --
 
 ALTER TABLE ONLY public.msip_municipio
-    ADD CONSTRAINT msip_municipio_id_departamento_fkey FOREIGN KEY (id_departamento) REFERENCES public.msip_departamento(id);
+    ADD CONSTRAINT msip_municipio_id_departamento_fkey FOREIGN KEY (departamento_id) REFERENCES public.msip_departamento(id);
 
 
 --
@@ -2776,7 +2776,7 @@ ALTER TABLE ONLY public.msip_municipio
 --
 
 ALTER TABLE ONLY public.msip_persona
-    ADD CONSTRAINT persona_id_clase_fkey FOREIGN KEY (id_clase) REFERENCES public.msip_clase(id);
+    ADD CONSTRAINT persona_id_clase_fkey FOREIGN KEY (clase_id) REFERENCES public.msip_clase(id);
 
 
 --
@@ -2784,7 +2784,7 @@ ALTER TABLE ONLY public.msip_persona
 --
 
 ALTER TABLE ONLY public.msip_persona
-    ADD CONSTRAINT persona_id_municipio_fkey FOREIGN KEY (id_municipio) REFERENCES public.msip_municipio(id);
+    ADD CONSTRAINT persona_id_municipio_fkey FOREIGN KEY (municipio_id) REFERENCES public.msip_municipio(id);
 
 
 --
@@ -2792,7 +2792,7 @@ ALTER TABLE ONLY public.msip_persona
 --
 
 ALTER TABLE ONLY public.msip_persona
-    ADD CONSTRAINT persona_id_pais_fkey FOREIGN KEY (id_pais) REFERENCES public.msip_pais(id);
+    ADD CONSTRAINT persona_id_pais_fkey FOREIGN KEY (pais_id) REFERENCES public.msip_pais(id);
 
 
 --
@@ -2816,7 +2816,7 @@ ALTER TABLE ONLY public.msip_persona
 --
 
 ALTER TABLE ONLY public.msip_persona_trelacion
-    ADD CONSTRAINT persona_trelacion_id_trelacion_fkey FOREIGN KEY (id_trelacion) REFERENCES public.msip_trelacion(id);
+    ADD CONSTRAINT persona_trelacion_id_trelacion_fkey FOREIGN KEY (trelacion_id) REFERENCES public.msip_trelacion(id);
 
 
 --
@@ -2840,7 +2840,7 @@ ALTER TABLE ONLY public.msip_persona_trelacion
 --
 
 ALTER TABLE ONLY public.msip_ubicacion
-    ADD CONSTRAINT ubicacion_id_clase_fkey FOREIGN KEY (id_clase) REFERENCES public.msip_clase(id);
+    ADD CONSTRAINT ubicacion_id_clase_fkey FOREIGN KEY (clase_id) REFERENCES public.msip_clase(id);
 
 
 --
@@ -2848,7 +2848,7 @@ ALTER TABLE ONLY public.msip_ubicacion
 --
 
 ALTER TABLE ONLY public.msip_ubicacion
-    ADD CONSTRAINT ubicacion_id_departamento_fkey FOREIGN KEY (id_departamento) REFERENCES public.msip_departamento(id);
+    ADD CONSTRAINT ubicacion_id_departamento_fkey FOREIGN KEY (departamento_id) REFERENCES public.msip_departamento(id);
 
 
 --
@@ -2856,7 +2856,7 @@ ALTER TABLE ONLY public.msip_ubicacion
 --
 
 ALTER TABLE ONLY public.msip_ubicacion
-    ADD CONSTRAINT ubicacion_id_municipio_fkey FOREIGN KEY (id_municipio) REFERENCES public.msip_municipio(id);
+    ADD CONSTRAINT ubicacion_id_municipio_fkey FOREIGN KEY (municipio_id) REFERENCES public.msip_municipio(id);
 
 
 --
@@ -2864,7 +2864,7 @@ ALTER TABLE ONLY public.msip_ubicacion
 --
 
 ALTER TABLE ONLY public.msip_ubicacion
-    ADD CONSTRAINT ubicacion_id_pais_fkey FOREIGN KEY (id_pais) REFERENCES public.msip_pais(id);
+    ADD CONSTRAINT ubicacion_id_pais_fkey FOREIGN KEY (pais_id) REFERENCES public.msip_pais(id);
 
 
 --
@@ -2872,7 +2872,7 @@ ALTER TABLE ONLY public.msip_ubicacion
 --
 
 ALTER TABLE ONLY public.msip_ubicacion
-    ADD CONSTRAINT ubicacion_id_tsitio_fkey FOREIGN KEY (id_tsitio) REFERENCES public.msip_tsitio(id);
+    ADD CONSTRAINT ubicacion_id_tsitio_fkey FOREIGN KEY (tsitio_id) REFERENCES public.msip_tsitio(id);
 
 
 --
@@ -3004,6 +3004,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20221212021533'),
 ('20230119111240'),
 ('20230301145222'),
-('20230301212546');
+('20230301212546'),
+('20230404025025');
 
 
