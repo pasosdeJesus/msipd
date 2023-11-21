@@ -54,11 +54,11 @@ ActiveRecord::Schema.define(version: 2018_10_11_104537) do
     t.datetime "adjunto_updated_at"
   end
 
-  create_table "msip_clase", id: :serial, force: :cascade do |t|
+  create_table "msip_centropoblado", id: :serial, force: :cascade do |t|
     t.string "nombre", limit: 500, null: false, collation: "es_co_utf_8"
     t.integer "municipio_id", null: false
-    t.integer "clalocal_cod"
-    t.string "tclase_id", limit: 10, default: "CP", null: false
+    t.integer "cplocal_cod"
+    t.string "tcentropoblado_id", limit: 10, default: "CP", null: false
     t.float "latitud"
     t.float "longitud"
     t.date "fechacreacion", null: false
@@ -178,7 +178,7 @@ ActiveRecord::Schema.define(version: 2018_10_11_104537) do
     t.string "sexo", limit: 1, null: false
     t.integer "departamento_id"
     t.integer "municipio_id"
-    t.integer "clase_id"
+    t.integer "centropoblado_id"
     t.string "numerodocumento", limit: 100
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -208,7 +208,7 @@ ActiveRecord::Schema.define(version: 2018_10_11_104537) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "msip_tclase", id: :string, limit: 10, force: :cascade do |t|
+  create_table "msip_tcentropoblado", id: :string, limit: 10, force: :cascade do |t|
     t.string "nombre", limit: 500, null: false, collation: "es_co_utf_8"
     t.date "fechacreacion", null: false
     t.date "fechadeshabilitacion"
@@ -250,7 +250,7 @@ ActiveRecord::Schema.define(version: 2018_10_11_104537) do
   create_table "msip_ubicacion", id: :serial, force: :cascade do |t|
     t.string "lugar", limit: 500, collation: "es_co_utf_8"
     t.string "sitio", limit: 500, collation: "es_co_utf_8"
-    t.integer "clase_id"
+    t.integer "centropoblado_id"
     t.integer "municipio_id"
     t.integer "departamento_id"
     t.integer "tsitio_id", default: 1, null: false
@@ -295,13 +295,13 @@ ActiveRecord::Schema.define(version: 2018_10_11_104537) do
   add_foreign_key "msip_actorsocial_persona", "msip_persona", column: "persona_id"
   add_foreign_key "msip_actorsocial_sectoractor", "msip_actorsocial", column: "actorsocial_id"
   add_foreign_key "msip_actorsocial_sectoractor", "msip_sectoractor", column: "sectoractor_id"
-  add_foreign_key "msip_clase", "msip_municipio", column: "municipio_id", name: "clase_municipio_id_fkey"
-  add_foreign_key "msip_clase", "msip_tclase", column: "tclase_id", name: "clase_tclase_id_fkey"
+  add_foreign_key "msip_centropoblado", "msip_municipio", column: "municipio_id", name: "centropoblado_municipio_id_fkey"
+  add_foreign_key "msip_centropoblado", "msip_tcentropoblado", column: "tcentropoblado_id", name: "centropoblado_tcentropoblado_id_fkey"
   add_foreign_key "msip_departamento", "msip_pais", column: "pais_id", name: "departamento_pais_id_fkey"
   add_foreign_key "msip_grupo_usuario", "msip_grupo"
   add_foreign_key "msip_grupo_usuario", "usuario"
   add_foreign_key "msip_municipio", "msip_departamento", column: "departamento_id", name: "msip_municipio_departamento_id_fkey"
-  add_foreign_key "msip_persona", "msip_clase", column: "clase_id", name: "persona_clase_id_fkey"
+  add_foreign_key "msip_persona", "msip_centropoblado", column: "centropoblado_id", name: "persona_centropoblado_id_fkey"
   add_foreign_key "msip_persona", "msip_municipio", column: "municipio_id", name: "persona_municipio_id_fkey"
   add_foreign_key "msip_persona", "msip_pais", column: "pais_id", name: "persona_pais_id_fkey"
   add_foreign_key "msip_persona", "msip_pais", column: "nacionalde", name: "persona_nacionalde_fkey"
@@ -309,7 +309,7 @@ ActiveRecord::Schema.define(version: 2018_10_11_104537) do
   add_foreign_key "msip_persona_trelacion", "msip_persona", column: "persona1", name: "persona_trelacion_persona1_fkey"
   add_foreign_key "msip_persona_trelacion", "msip_persona", column: "persona2", name: "persona_trelacion_persona2_fkey"
   add_foreign_key "msip_persona_trelacion", "msip_trelacion", column: "trelacion_id", name: "persona_trelacion_trelacion_id_fkey"
-  add_foreign_key "msip_ubicacion", "msip_clase", column: "clase_id", name: "ubicacion_clase_id_fkey"
+  add_foreign_key "msip_ubicacion", "msip_centropoblado", column: "centropoblado_id", name: "ubicacion_centropoblado_id_fkey"
   add_foreign_key "msip_ubicacion", "msip_departamento", column: "departamento_id", name: "ubicacion_departamento_id_fkey"
   add_foreign_key "msip_ubicacion", "msip_municipio", column: "municipio_id", name: "ubicacion_municipio_id_fkey"
   add_foreign_key "msip_ubicacion", "msip_pais", column: "pais_id", name: "ubicacion_pais_id_fkey"

@@ -21,7 +21,7 @@ class Ability  < Msipd::Ability
 
 
     # Sin autenticación puede consultarse información geográfica y dominios
-    can :read, [Msip::Pais, Msip::Departamento, Msip::Municipio, Msip::Clase]
+    can :read, [Msip::Pais, Msip::Departamento, Msip::Municipio, Msip::Centropoblado]
     can :read, Msipd::Dominio
     # No se autorizan usuarios con fecha de deshabilitación
     if !usuario || usuario.fechadeshabilitacion

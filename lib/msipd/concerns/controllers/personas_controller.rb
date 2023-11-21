@@ -26,7 +26,7 @@ module Msipd
               :pais,
               :departamento,
               :municipio,
-              :clase,
+              :centropoblado,
               :nacionalde,
               :tdocumento,
               :numerodocumento

@@ -18,8 +18,8 @@ GIT
 
 GIT
   remote: https://gitlab.com/pasosdeJesus/msip.git
-  revision: 44bfeb4374774206509a9bc9abc927ba27b71453
-  branch: main
+  revision: 49840ef8e91936b18f8842ec47c374e7a18d8563
+  branch: renclase
   specs:
     msip (2.2.0.beta4)
       cancancan (~> 3)
@@ -127,7 +127,7 @@ GEM
       babel-source (>= 4.0, < 6)
       execjs (~> 2.0)
     base64 (0.2.0)
-    bcrypt (3.1.19)
+    bcrypt (3.1.20)
     bigdecimal (3.1.4)
     bindex (0.8.1)
     builder (3.2.4)
@@ -190,7 +190,7 @@ GEM
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     io-console (0.6.0)
-    irb (1.9.0)
+    irb (1.9.1)
       rdoc
       reline (>= 0.3.8)
     jsbundling-rails (1.2.1)
@@ -221,15 +221,15 @@ GEM
       timeout
     net-smtp (0.4.0)
       net-protocol
-    nio4r (2.5.9)
-    nokogiri (1.15.4)
+    nio4r (2.6.1)
+    nokogiri (1.15.5)
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
     orm_adapter (0.5.0)
     pg (1.5.4)
     psych (5.1.1.1)
       stringio
-    public_suffix (5.0.3)
+    public_suffix (5.0.4)
     puma (6.4.0)
       nio4r (~> 2.0)
     racc (1.7.3)

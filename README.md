@@ -52,7 +52,7 @@ caso de persona y actor social tal vez personalidades públicas (no util?).
 # Opcion 1. Relación muchos a uno con tabla dominio
    Ha sido dificil de implementar a nivel de modelos y controladores
    de forma que no se requieran cambios amplios a las aplicaciones y
-   motores que usan msip.   Pues ha requerido parchar las clase
+   motores que usan msip.   Pues ha requerido parchar las clases
    basicas_controller y las clases de las tablas de msip, que técnicamente
    no resultó trivial.
  
