@@ -18,8 +18,8 @@ GIT
 
 GIT
   remote: https://gitlab.com/pasosdeJesus/msip.git
-  revision: 49840ef8e91936b18f8842ec47c374e7a18d8563
-  branch: renclase
+  revision: 932966920f125f0f47e37ace5574ec80ca7a8366
+  branch: main
   specs:
     msip (2.2.0.beta4)
       cancancan (~> 3)
@@ -212,7 +212,7 @@ GEM
     mini_portile2 (2.8.5)
     minitest (5.20.0)
     mutex_m (0.2.0)
-    net-imap (0.4.5)
+    net-imap (0.4.6)
       date
       net-protocol
     net-pop (0.1.2)
