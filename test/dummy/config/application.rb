@@ -1,6 +1,18 @@
 require_relative 'boot'
 
-require 'rails/all'
+require "rails"
+# Pick the frameworks you want:
+require "active_model/railtie"
+require "active_job/railtie"
+require "active_record/railtie"
+# require "active_storage/engine"
+require "action_controller/railtie"
+require "action_mailer/railtie"
+# require "action_mailbox/engine"
+# require "action_text/engine"
+require "action_view/railtie"
+#require "action_cable/engine"
+require "rails/test_unit/railtie"
 
 # Requiere gemas listas en el Gemfile, incluyendo las
 # limitadas a :test, :development, o :production.
@@ -9,7 +21,9 @@ Bundler.require(*Rails.groups)
 module Dummy
   class Application < Rails::Application
 
-    config.load_defaults 7.0
+    config.load_defaults Rails::VERSION::STRING.to_f
+
+    config.autoload_lib(ignore: %w(assets tasks))
 
     # Las configuraciones en config/environments/* tiene precedencia sobre
     # las especificadas aquí.
@@ -37,9 +51,7 @@ module Dummy
     config.hosts.concat(
       ENV.fetch('CONFIG_HOSTS', 'defensor.info').downcase.split(";"))
 
-    #config.web_console.whitelisted_ips = ['186.154.35.237']
-    
-    # config.relative_url_root = ENV.fetch('RUTA_RELATIVA', '/heb412')
+    config.relative_url_root = ENV.fetch('RUTA_RELATIVA', '/heb412')
 
     # msip
     config.x.formato_fecha = ENV.fetch('MSIP_FORMATO_FECHA', 'dd/M/yyyy')

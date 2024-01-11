@@ -18,7 +18,7 @@ GIT
 
 GIT
   remote: https://gitlab.com/pasosdeJesus/msip.git
-  revision: f987643443a0a7b05ba4210a869c7450fc5f7fed
+  revision: 53f4c98aafbb6c101d5475fb4abd40af3f531fcd
   branch: main
   specs:
     msip (2.2.0.beta4)
@@ -190,9 +190,9 @@ GEM
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     io-console (0.7.1)
-    irb (1.11.0)
+    irb (1.11.1)
       rdoc
-      reline (>= 0.3.8)
+      reline (>= 0.4.2)
     jsbundling-rails (1.2.2)
       railties (>= 6.0.0)
     loofah (2.22.0)
@@ -363,7 +363,7 @@ DEPENDENCIES
   nokogiri (>= 1.11.1)
   pg
   puma
-  rails (~> 7.0)
+  rails (~> 7.1)
   rails-i18n
   sassc-rails
   simple_form
