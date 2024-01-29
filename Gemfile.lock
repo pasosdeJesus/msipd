@@ -18,7 +18,7 @@ GIT
 
 GIT
   remote: https://gitlab.com/pasosdeJesus/msip.git
-  revision: 74b32e97ae4d095bae1b327bdaf0d0d2539f7c77
+  revision: 762f6db0ae3aee730a53a98a8857aac07937db90
   branch: main
   specs:
     msip (2.2.0.beta4)
@@ -133,11 +133,11 @@ GEM
     builder (3.2.4)
     camertron-eprun (1.1.1)
     cancancan (3.5.0)
-    capybara (3.39.2)
+    capybara (3.40.0)
       addressable
       matrix
       mini_mime (>= 0.1.3)
-      nokogiri (~> 1.8)
+      nokogiri (~> 1.11)
       rack (>= 1.6.0)
       rack-test (>= 0.6.3)
       regexp_parser (>= 1.5, < 3.0)
